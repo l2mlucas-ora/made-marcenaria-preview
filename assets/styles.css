@@ -840,3 +840,27 @@ p { max-width: 62ch; }
 }
 .giro-dica::before { content: "↔"; font-size: .95rem; line-height: 1; }
 .girou .giro-dica { opacity: 0; }
+
+/* ---------- Foto realista (traçado de raios, cena3d.js) ---------- */
+.foto3d__botao {
+  position: absolute; right: 12px; top: 12px; z-index: 3;
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px; border: 0; border-radius: 999px; cursor: pointer;
+  background: rgb(28 25 23 / .72); color: #F4EFE7; font: 500 .78rem/1 var(--fonte-corpo); letter-spacing: .04em;
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); transition: background-color var(--dur) var(--ease);
+}
+.foto3d__botao:hover { background: rgb(28 25 23 / .88); }
+.foto3d__botao svg { width: 17px; height: 17px; }
+.fotografando .foto3d__botao, .fotografando .giro-dica { opacity: 0; pointer-events: none; }
+.foto3d__painel {
+  position: absolute; left: 12px; right: 12px; bottom: 12px; z-index: 3;
+  display: grid; gap: 10px; padding: 12px 14px; border-radius: 10px;
+  background: rgb(28 25 23 / .78); color: #F4EFE7; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+.foto3d__painel[hidden] { display: none; }
+.foto3d__texto { margin: 0; font-size: .84rem; }
+.foto3d__barra { height: 3px; border-radius: 2px; background: rgb(244 239 231 / .2); overflow: hidden; }
+.foto3d__barra span { display: block; height: 100%; width: 0; background: #D9C3A1; transition: width 200ms linear; }
+.foto3d__acoes { display: flex; flex-wrap: wrap; gap: 8px; }
+.foto3d__acao { appearance: none; cursor: pointer; border: 1px solid rgb(244 239 231 / .4); background: transparent; color: #F4EFE7; border-radius: 999px; padding: 8px 14px; font: 500 .8rem/1 var(--fonte-corpo); }
+.foto3d__acao--principal { background: #F4EFE7; color: #1C1917; border-color: #F4EFE7; }
+.mdf__previa .foto3d__botao { top: 10px; right: 10px; }
