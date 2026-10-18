@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Abrindo o WhatsApp — Madê Marcenaria</title>
+<meta name="theme-color" content="#1C1917">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
+
+<!-- Página de passagem de todo botão de WhatsApp.
+
+     A Cloudflare Web Analytics não tem evento de clique. Então o clique vira
+     uma visita: cada botão aponta para /falar/?de=<qual botão>, esta página
+     conta no painel e segue para o WhatsApp.
+
+     No painel, cada botão aparece como um caminho próprio — /falar/heroi/,
+     /falar/barra/, /falar/bio/… — porque a Cloudflare agrupa por caminho e
+     ignora a query. O replaceState abaixo reescreve o endereço antes de o
+     medidor ler, e a origem (a página onde o botão estava) sai no referrer.
+
+     O redirecionamento espera o envio da visita TERMINAR: o medidor manda a
+     visita por XHR depois do "load", e sair da página cancela o XHR. Sem
+     medidor (token vazio) ou com bloqueador de anúncio, segue na hora. E, se
+     nada responder, 2 s depois segue assim mesmo — a conversa vale mais que
+     a contagem. Mecânica herdada de Pizza38/site/pedir/. -->
+<noscript><meta http-equiv="refresh" content="0; url=https://wa.me/5548992229202"></noscript>
+
+<script>
+  (function () {
+    // O número da casa, igual ao <body data-zap> do site e à bio do Instagram (17/10/2026).
+    var NUMERO = '5548992229202';
+    var MENSAGEM = 'Olá! Vim pelo site da Madê Marcenaria e quero conversar sobre um projeto.';
+    // Resumo do assistente de pré-orçamento: chega por sessionStorage (nunca
+    // pela URL do site) e é apagado na hora — o site não guarda nada.
+    try {
+      var doChat = sessionStorage.getItem('made:mensagem');
+      if (doChat) { MENSAGEM = doChat.slice(0, 3000); sessionStorage.removeItem('made:mensagem'); }
+    } catch (e) {}
+
+    var de = (new URLSearchParams(location.search).get('de') || 'site')
+      .toLowerCase().replace(/[^a-z0-9-]/g, '').slice(0, 30) || 'site';
+    // O destino é fixo; da query só entra o rótulo, limpo. Não há como usar
+    // esta página para mandar alguém a outro endereço.
+    var destino = 'https://wa.me/' + NUMERO + '?text=' + encodeURIComponent(MENSAGEM);
+    window.destinoZap = destino;
+
+    // Base do site: "/" no domínio, "/<repo>/" na prévia do GitHub Pages.
+    var BASE = location.pathname.replace(/falar\/.*$/, '');
+    window.baseSite = BASE;
+    history.replaceState(null, '', BASE + 'falar/' + de + '/');
+
+    var foi = false;
+    window.irAoZap = function () { if (!foi) { foi = true; location.replace(destino); } };
+    setTimeout(window.irAoZap, 2000);
+
+    var abrir = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function (metodo, url) {
+      if (String(url).indexOf('/cdn-cgi/rum') !== -1) this.addEventListener('loadend', window.irAoZap);
+      return abrir.apply(this, arguments);
+    };
+  })();
+</script>
+<!-- Caminho montado com a base do site: depois do replaceState, um relativo
+     resolveria contra /falar/<botão>/ e não acharia o arquivo. -->
+<script>document.write('<script src="' + window.baseSite + 'assets/medir.js"><\/script>');</script>
+<script>
+  if (!window.medidor) window.irAoZap();
+  else window.medidor.addEventListener('error', window.irAoZap);
+</script>
+
+<style>
+  html, body { height: 100%; margin: 0 }
+  body {
+    display: grid; place-items: center; text-align: center;
+    background: #1C1917; color: #F4EFE7;
+    font: 500 1.05rem/1.5 Inter, "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  img { width: 88px; height: 88px; border-radius: 50%; margin: 0 auto }
+  p { margin: 18px 0 6px }
+  a { color: #B08E5E }
+</style>
+</head>
+<body>
+  <div>
+    <img id="logo" src="data:," alt="Madê Marcenaria" width="88" height="88" onerror="this.style.display='none'">
+    <p>Abrindo o WhatsApp…</p>
+    <a id="ir" href="https://wa.me/5548992229202">Se não abrir, toque aqui</a>
+  </div>
+  <script>document.getElementById('ir').href = window.destinoZap; var lg = document.getElementById('logo'); lg.style.display = ''; lg.src = window.baseSite + 'assets/logo.png';</script>
+</body>
+</html>

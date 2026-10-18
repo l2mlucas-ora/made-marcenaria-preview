@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Madê Marcenaria — todos os links</title>
+<meta name="description" content="Fale no WhatsApp, veja os projetos e conheça a Madê Marcenaria: ambientes planejados em Garopaba, Imbituba e região.">
+<!-- `noindex` de propósito: esta página não compete com o site no Google.
+     Ela existe para uma coisa só — ser o link da bio do @made.marcenaria. -->
+<meta name="robots" content="noindex, follow">
+<!-- TODO: confirmar com a dona — domínio final. -->
+<link rel="canonical" href="https://www.mademarcenaria.com.br/links/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Madê Marcenaria">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Madê Marcenaria — todos os links">
+<meta property="og:description" content="Fale no WhatsApp, veja os projetos e conheça a Madê Marcenaria.">
+<meta property="og:url" content="https://www.mademarcenaria.com.br/links/">
+<meta property="og:image" content="https://www.mademarcenaria.com.br/assets/og-image-1200x630.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1C1917">
+<link rel="icon" href="../assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="../assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../assets/styles.css">
+<script>
+  /* Tema antes de pintar a página (sem "piscar" claro → escuro).
+     Escolha guardada no botão do topo; sem escolha, segue o sistema (CSS). */
+  try { var t = localStorage.getItem('made:tema'); if (t === 'escuro' || t === 'claro') document.documentElement.setAttribute('data-tema', t); } catch (e) {}
+  if (/\.github\.io$/.test(location.hostname)) { var mr = document.createElement('meta'); mr.name = 'robots'; mr.content = 'noindex, nofollow'; document.head.appendChild(mr); }
+</script>
+
+
+<style>
+  /* A folha do site traz os tokens. Aqui fica só o que é exclusivo desta
+     página — a coluna única de celular, escura como o perfil do Instagram. */
+  body.bio {
+    min-height: 100svh;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 40px 20px 40px;
+    background:
+      radial-gradient(70% 40% at 50% 0%, rgb(176 142 94 / .22), transparent 70%),
+      var(--grafite);
+    color: var(--creme);
+  }
+  .coluna { width: 100%; max-width: 460px; display: flex; flex-direction: column; align-items: center; }
+
+  .bio__marca { width: 112px; height: 112px; border-radius: 50%; filter: drop-shadow(0 0 30px rgb(176 142 94 / .35)); }
+  .bio__marca.sem-logo { display: none; }
+  .bio h1 { font-size: 2rem; margin-top: 18px; font-weight: 400; letter-spacing: .02em; }
+  .bio__arroba {
+    margin-top: 8px; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--bronze-claro); text-decoration: none;
+  }
+  .bio__frase { text-align: center; margin-top: 14px; max-width: 30ch; color: rgb(244 239 231 / .72); font-size: .98rem; }
+
+  .lista { width: 100%; display: flex; flex-direction: column; gap: 10px; margin-top: 30px; }
+
+  .lk {
+    display: flex; align-items: center; gap: 14px; width: 100%;
+    background: var(--grafite-2); border: 1px solid var(--linha-escura);
+    border-radius: 6px; padding: 16px 18px;
+    text-decoration: none; color: var(--creme);
+    transition: transform 120ms ease-out, border-color var(--dur) var(--ease);
+  }
+  .lk:hover { border-color: rgb(176 142 94 / .6); }
+  .lk:active { transform: scale(.985); }
+  .lk .ico { flex: none; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--bronze-claro); }
+  .lk .ico svg { width: 24px; height: 24px; }
+  .lk b { display: block; font-family: var(--fonte-titulo); font-weight: 500; font-size: 1.22rem; line-height: 1.1; }
+  .lk small { display: block; font-size: .84rem; color: rgb(244 239 231 / .62); margin-top: 3px; }
+
+  /* Destaque: o WhatsApp é bronze, texto creme — a variante define a cor. */
+  .lk--destaque { background: var(--bronze); border-color: var(--bronze); color: var(--creme); }
+  .lk--destaque .ico { color: var(--creme); }
+  .lk--destaque small { color: rgb(244 239 231 / .8); }
+  .lk--destaque:hover { border-color: var(--bronze-claro); }
+
+  /* Link sem destino fica apagado, nunca clicável. */
+  .lk[aria-disabled="true"] { opacity: .42; pointer-events: none; }
+
+  .bio__risco { width: 90px; height: 1px; background: var(--bronze-claro); opacity: .6; margin-top: 34px; }
+  .bio__rod {
+    margin-top: 18px; text-align: center; font-size: .8rem; color: rgb(244 239 231 / .55);
+    display: flex; flex-direction: column; gap: 6px;
+  }
+  .bio__rod a { color: inherit; }
+</style>
+</head>
+
+<body class="bio" data-zap="5548992229202" data-insta="made.marcenaria">
+<main class="coluna">
+
+  <!-- Logo oficial: a arte do post fixado do Instagram, recortada em disco. -->
+  <img class="bio__marca" src="../assets/logo.png" alt="Madê Marcenaria e Arte" width="112" height="112">
+  <h1>Madê Marcenaria</h1>
+  <a class="bio__arroba" data-insta-link href="https://www.instagram.com/made.marcenaria/" target="_blank" rel="noopener">@made.marcenaria</a>
+  <p class="bio__frase">Ambientes planejados. Projetamos seu estilo em cada detalhe. Garopaba, Imbituba e região.</p>
+
+  <nav class="lista" aria-label="Links da Madê">
+    <a class="lk lk--destaque" href="../falar/?de=bio">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.7-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.3-.9 2.1 0 .9.4 1.8 1 2.6 1.1 1.6 2.6 2.9 4.4 3.6.5.2.9.3 1.3.4.5.1 1 .1 1.5 0 .6-.2 1.1-.6 1.4-1.1.1-.3.2-.7.1-1l-.4-.2z"/></svg>
+      </span>
+      <span>
+        <b>Falar no WhatsApp</b>
+        <small>Conversar sobre o seu projeto</small>
+      </span>
+    </a>
+
+    <a class="lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=orcamento#orcamento">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg>
+      </span>
+      <span>
+        <b>Pré-orçamento em 2 minutos</b>
+        <small>Casa, apartamento, comércio ou pousada</small>
+      </span>
+    </a>
+
+    <a class="lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=links#projetos">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
+      </span>
+      <span>
+        <b>Projetos</b>
+        <small>Cozinhas, quartos, áreas gourmet e peças em madeira</small>
+      </span>
+    </a>
+
+    <a class="lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=links#processo">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h13"/></svg>
+      </span>
+      <span>
+        <b>Como funciona</b>
+        <small>Conversa, projeto, produção e montagem</small>
+      </span>
+    </a>
+
+    <a class="lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=links">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>
+      </span>
+      <span>
+        <b>Site da Madê</b>
+        <!-- TODO: confirmar com a dona — domínio final. -->
+        <small>mademarcenaria.com.br</small>
+      </span>
+    </a>
+
+    <a class="lk" data-insta-link href="https://www.instagram.com/made.marcenaria/" target="_blank" rel="noopener">
+      <span class="ico">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+      </span>
+      <span>
+        <b>Instagram</b>
+        <small>@made.marcenaria</small>
+      </span>
+    </a>
+  </nav>
+
+  <div class="bio__risco"></div>
+
+  <div class="bio__rod">
+    <span>© <span data-ano>2026</span> Madê Marcenaria · Garopaba, SC</span>
+    <span>Site por <a href="https://extremaconsultoria.com.br" target="_blank" rel="noopener">Extrema Consultoria</a></span>
+  </div>
+
+</main>
+
+<script src="../assets/i18n.js" defer></script>
+<script src="../assets/site.js" defer></script>
+<script src="../assets/medir.js" defer></script>
+</body>
+</html>

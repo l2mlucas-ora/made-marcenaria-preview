@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<script>
+  /* Base do site: "/" no domínio; "/<repo>/" na prévia do GitHub Pages. */
+  document.write('<base href="' + (/\.github\.io$/.test(location.hostname) ? '/' + location.pathname.split('/')[1] + '/' : '/') + '">');
+</script>
+<title>Página não encontrada — Madê Marcenaria</title>
+<meta name="theme-color" content="#F4EFE7">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  /* Tema antes de pintar a página (sem "piscar" claro → escuro).
+     Escolha guardada no botão do topo; sem escolha, segue o sistema (CSS). */
+  try { var t = localStorage.getItem('made:tema'); if (t === 'escuro' || t === 'claro') document.documentElement.setAttribute('data-tema', t); } catch (e) {}
+</script>
+
+</head>
+<body data-zap="5548992229202" data-insta="made.marcenaria">
+<main class="pagina-curta">
+  <div>
+    <a class="marca" href="./" aria-label="Madê Marcenaria e Arte — início">
+      <span class="marca__letreiro" aria-hidden="true"></span>
+    </a>
+    <h1>Essa página não existe.</h1>
+    <p class="suave">O endereço pode ter mudado. O site da Madê está aqui embaixo, e o WhatsApp também.</p>
+    <a class="btn btn--bronze" href="./">Voltar ao site</a>
+  </div>
+</main>
+<script src="assets/i18n.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Madê Marcenaria — marcenaria sob medida em Garopaba e Imbituba</title>
+<meta name="description" content="Marcenaria sob medida em Garopaba e Imbituba: móveis planejados em MDF Arauco e Duratex — cozinhas, quartos, closets e áreas gourmet para casas, apartamentos, comércios e pousadas — e peças em madeira maciça. Faça seu pré-orçamento.">
+<!-- TODO: confirmar com a dona — domínio final (canonical, OG e JSON-LD usam mademarcenaria.com.br por enquanto). -->
+<link rel="canonical" href="https://www.mademarcenaria.com.br/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Madê Marcenaria">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Madê Marcenaria — marcenaria sob medida em Garopaba e Imbituba">
+<meta property="og:description" content="Ambientes planejados e peças em madeira maciça. Projetamos seu estilo em cada detalhe.">
+<meta property="og:url" content="https://www.mademarcenaria.com.br/">
+<meta property="og:image" content="https://www.mademarcenaria.com.br/assets/og-image-1200x630.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#1C1917">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/favicon-180.png">
+<link rel="preload" as="image" href="assets/fotos/capa-tronco.jpg" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/styles.css">
+<script>
+  /* Tema antes de pintar a página (sem "piscar" claro → escuro).
+     Escolha guardada no botão do topo; sem escolha, segue o sistema (CSS). */
+  try { var t = localStorage.getItem('made:tema'); if (t === 'escuro' || t === 'claro') document.documentElement.setAttribute('data-tema', t); } catch (e) {}
+  if (/\.github\.io$/.test(location.hostname)) { var mr = document.createElement('meta'); mr.name = 'robots'; mr.content = 'noindex, nofollow'; document.head.appendChild(mr); }
+</script>
+
+
+<!-- Ficha da casa para o Google. Só entra o que é confirmado (perfil e
+     legendas do Instagram, 17/10/2026). Endereço e horário: quando a dona mandar. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Madê Marcenaria",
+  "alternateName": "Madê Marcenaria e Arte",
+  "description": "Marcenaria sob medida: ambientes planejados para casas, apartamentos, comércios e hospedagem, e peças em madeira maciça. Garopaba, Imbituba e região (SC).",
+  "url": "https://www.mademarcenaria.com.br/",
+  "image": "https://www.mademarcenaria.com.br/assets/og-image-1200x630.jpg",
+  "logo": "https://www.mademarcenaria.com.br/assets/logo.png",
+  "telephone": "+55 48 99222-9202",
+  "areaServed": [
+    { "@type": "City", "name": "Garopaba" },
+    { "@type": "City", "name": "Imbituba" }
+  ],
+  "address": { "@type": "PostalAddress", "addressRegion": "SC", "addressCountry": "BR" },
+  "sameAs": ["https://www.instagram.com/made.marcenaria/"]
+}
+</script>
+</head>
+
+<!-- Dado da casa num lugar só. data-zap vazio desliga todo botão de WhatsApp. -->
+<body id="inicio" data-zap="5548992229202" data-insta="made.marcenaria">
+
+<header class="topo">
+  <div class="container">
+    <!-- Letreiro oficial da Madê, recortado da arte do Instagram (assets/logo-letreiro.png). -->
+    <a class="marca" href="#inicio" aria-label="Madê Marcenaria e Arte — início">
+      <span class="marca__letreiro" aria-hidden="true"></span>
+    </a>
+    <div class="ferramentas">
+      <div class="idiomas" role="group" aria-label="Idioma" data-sem-traducao>
+        <button type="button" data-idioma="pt" aria-pressed="true" lang="pt-BR" title="Português">PT</button>
+        <button type="button" data-idioma="en" aria-pressed="false" lang="en" title="English">EN</button>
+        <button type="button" data-idioma="es" aria-pressed="false" lang="es" title="Español">ES</button>
+      </div>
+      <button class="tema-btn" type="button" data-tema-botao aria-label="Mudar para tema escuro">
+        <svg class="sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+        <svg class="lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      </button>
+    </div>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span></button>
+    <nav class="menu" id="menu" aria-label="Seções do site">
+      <a href="#projetos">Projetos</a>
+      <a href="#mdf">MDF</a>
+      <a href="#monte">Monte o seu</a>
+      <a href="#processo">Como funciona</a>
+      <a href="#a-made">A Madê</a>
+      <a class="menu__zap" href="falar/?de=topo">WhatsApp</a>
+      <button class="btn btn--topo" type="button" data-orcamento>Pré-orçamento <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===================== HERÓI ===================== -->
+  <section class="heroi" aria-labelledby="titulo-heroi">
+    <div id="inicio-sentinela" aria-hidden="true"></div>
+    <div class="heroi__fundo">
+      <!-- Corte de tronco com os anéis da madeira — a primeira foto de madeira do
+           Instagram (post fixado /p/DFGRiScRxeQ/), escolha do Lucas em 17/10/2026. -->
+      <img src="assets/fotos/capa-tronco.jpg" alt="" width="1800" height="1800" fetchpriority="high">
+    </div>
+    <div class="heroi__veu" aria-hidden="true"></div>
+    <div class="heroi__luz" aria-hidden="true"></div>
+    <div class="container">
+      <div class="heroi__texto">
+        <p class="sobrelinha entra entra--1">Marcenaria sob medida</p>
+        <h1 id="titulo-heroi">
+          <span class="linha"><span class="entra entra--2">Projetamos</span></span>
+          <span class="linha"><span class="entra entra--3">seu estilo</span></span>
+          <span class="linha"><em class="entra entra--4">em cada detalhe.</em></span>
+        </h1>
+        <div class="heroi__base entra entra--5">
+          <p>Ambientes planejados em MDF premium e peças em madeira maciça, com o acabamento de quem faz marcenaria como arte.</p>
+          <div class="heroi__acoes">
+            <button class="btn btn--creme" type="button" data-orcamento>Fazer pré-orçamento <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="link-seta link-seta--claro" href="#projetos">Ver projetos <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="heroi__rodape entra entra--6" aria-hidden="true">
+      <div class="container">
+        <span>Garopaba · Imbituba · SC</span>
+        <span class="heroi__rolar">Role <i></i></span>
+        <span>Casas · Apartamentos · Comércios · Pousadas</span>
+      </div>
+    </div>
+    <div id="fim-do-heroi" aria-hidden="true"></div>
+  </section>
+
+  <!-- Faixa de materiais: todos citados pela dona nas legendas do Instagram. -->
+  <div class="faixa" aria-label="Materiais com que a Madê trabalha">
+    <div class="faixa__trilho">
+      <div class="faixa__grupo">
+        <span>MDF Arauco</span><i></i><span>MDF Duratex</span><i></i><span>Carvalho Malva</span><i></i><span>Cumaru</span><i></i><span>Frapê</span><i></i><span>Cafelatte</span><i></i><span>Verde-sálvia</span><i></i><span>Pedra São Gabriel</span><i></i><span>Madeira grápia</span><i></i><span>Madeira de demolição</span><i></i>
+      </div>
+      <div class="faixa__grupo" aria-hidden="true">
+        <span>MDF Arauco</span><i></i><span>MDF Duratex</span><i></i><span>Carvalho Malva</span><i></i><span>Cumaru</span><i></i><span>Frapê</span><i></i><span>Cafelatte</span><i></i><span>Verde-sálvia</span><i></i><span>Pedra São Gabriel</span><i></i><span>Madeira grápia</span><i></i><span>Madeira de demolição</span><i></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MANIFESTO ===================== -->
+  <section class="manifesto" aria-label="A ideia da Madê">
+    <div class="container">
+      <p class="kicker">Marcenaria e arte</p>
+      <p class="manifesto__texto sobe">Para a Madê, um móvel bem feito não disputa atenção: <em>ele acompanha a casa.</em> Cada projeto começa na madeira e termina na sua rotina.</p>
+    </div>
+  </section>
+
+  <!-- ===================== PROJETOS ===================== -->
+  <section class="secao" id="projetos" aria-labelledby="titulo-projetos">
+    <div class="container">
+      <div class="secao__cabeca secao__cabeca--linha sobe">
+        <div>
+          <p class="kicker"><span class="kicker__num">01</span>Projetos</p>
+          <h2 id="titulo-projetos" style="margin-top: 16px">Madeira, luz <em>e detalhe.</em></h2>
+        </div>
+        <p class="suave">Cada ambiente é desenhado para a casa onde vai morar. Projetos que saíram da oficina da Madê, com as palavras de quem fez.</p>
+      </div>
+
+      <div class="filtros sobe" role="group" aria-label="Filtrar por ambiente">
+        <button class="filtro" type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+        <button class="filtro" type="button" data-filtro="cozinha" aria-pressed="false">Cozinhas</button>
+        <button class="filtro" type="button" data-filtro="quarto" aria-pressed="false">Quartos e closets</button>
+        <button class="filtro" type="button" data-filtro="gourmet" aria-pressed="false">Gourmet e salas</button>
+        <button class="filtro" type="button" data-filtro="escritorio" aria-pressed="false">Escritórios</button>
+        <button class="filtro" type="button" data-filtro="peca" aria-pressed="false">Peças em madeira</button>
+      </div>
+
+      <!-- Fotos dos posts do @made.marcenaria (baixadas em 17/10/2026, recortadas sem os
+           textos das artes; brutos em marca/instagram-bruto/). Títulos das legendas da dona.
+           TODO: confirmar com a dona — trocar pelos originais em alta quando ela mandar. -->
+      <!-- 12 fotos: destaque (2x4) + largo (2x2) + 10 normais — conta fechada para a grade de 4 colunas não deixar buraco. -->
+      <div class="mosaico">
+        <div class="peca peca--destaque sobe sobe--img" data-ambiente="cozinha">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/cozinha-salvia.jpg" alt="Cozinha planejada em verde-sálvia com bancada branca e janela" width="864" height="1080" loading="lazy">
+          <figcaption><span class="kicker">Cozinha</span><b>Verde-sálvia</b><small>Branco, cinza e aço escovado</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img sobe--2" data-ambiente="cozinha">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/cozinha-carvalho.jpg" alt="Cozinha em Carvalho Malva com pedra preta escovada" width="864" height="1080" loading="lazy">
+          <figcaption><span class="kicker">Cozinha</span><b>Carvalho Malva</b><small>Com pedra São Gabriel escovada</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img sobe--3" data-ambiente="cozinha">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/cozinha-paineis.jpg" alt="Torre de eletros em verde-sálvia com painéis cinza" width="864" height="1080" loading="lazy">
+          <figcaption><span class="kicker">Cozinha</span><b>Torre de eletros</b><small>Painéis em tom cinza</small></figcaption>
+        </button>
+        </div>
+        <div class="peca peca--largo sobe sobe--img" data-ambiente="gourmet">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/gourmet-grapia.jpg" alt="Churrasqueira com portas ripadas em madeira grápia e parede de pedra" width="1080" height="430" loading="lazy">
+          <figcaption><span class="kicker">Área gourmet</span><b>Portas ripadas em grápia</b><small>Pedra e madeira na churrasqueira</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img sobe--2" data-ambiente="gourmet">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/escada-adega.jpg" alt="Armário, adega e cristaleira embaixo da escada" width="864" height="1080" loading="lazy">
+          <figcaption><span class="kicker">Sala</span><b>Embaixo da escada</b><small>Armário, adega e bar</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img sobe--3" data-ambiente="quarto">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/closet.jpg" alt="Closet planejado em MDF Cumaru" width="710" height="888" loading="lazy">
+          <figcaption><span class="kicker">Closet</span><b>Ele e ela</b><small>Espaços iguais em 2,80 m</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img" data-ambiente="quarto">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/quarto-miguel.jpg" alt="Quarto infantil com guarda-roupa e cabeceira integrados" width="752" height="940" loading="lazy">
+          <figcaption><span class="kicker">Quarto</span><b>Guarda-roupa com cabeceira</b><small>Tons neutros para crescer junto</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img sobe--2" data-ambiente="escritorio">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/escritorio.jpg" alt="Escritório planejado com bancada dupla e painel ripado" width="800" height="1000" loading="lazy">
+          <figcaption><span class="kicker">Escritório</span><b>Para organizar o dia</b><small>Design, conforto e função</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img" data-ambiente="gourmet">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/palha.jpg" alt="Portas em madeira com palha natural e puxadores dourados" width="520" height="650" loading="lazy">
+          <figcaption><span class="kicker">Sala</span><b>Madeira e palha</b><small>Beleza que respira</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img sobe--2" data-ambiente="peca">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/borda-organica.jpg" alt="Bancada em madeira maciça com borda orgânica e cooktop" width="690" height="863" loading="lazy">
+          <figcaption><span class="kicker">Peça</span><b>Borda orgânica</b><small>Curvas da própria madeira</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img sobe--3" data-ambiente="peca">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/banco-ripado.jpg" alt="Banco ripado em madeira maciça" width="570" height="712" loading="lazy">
+          <figcaption><span class="kicker">Peça</span><b>Banco ripado</b><small>Guarapari, acabamento Imbuia</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img" data-ambiente="peca">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/demolicao.jpg" alt="Mesa em madeira de demolição" width="680" height="850" loading="lazy">
+          <figcaption><span class="kicker">Peça</span><b>Madeira de demolição</b><small>Ranhuras que contam história</small></figcaption>
+        </button>
+        </div>
+      </div>
+
+      <p class="dica-moodboard sobe"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.3s-7.6-4.6-9.2-9.4C1.6 7.3 3.9 4 7.3 4c2 0 3.6 1.1 4.7 2.6C13.1 5.1 14.7 4 16.7 4c3.4 0 5.7 3.3 4.5 6.9-1.6 4.8-9.2 9.4-9.2 9.4z"/></svg>Toque no coração das fotos que você gostar: elas vão junto no seu pré-orçamento.</p>
+      <div class="galeria__acao sobe">
+        <button class="btn btn--bronze" type="button" data-orcamento>Quero um projeto assim <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <a class="link-seta" data-insta-link href="https://www.instagram.com/made.marcenaria/" target="_blank" rel="noopener">Mais projetos no Instagram <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== MDF (assets/mdf-catalogo.js + assets/mdf.js) ===================== -->
+  <section class="secao secao--alt mdf" id="mdf" aria-labelledby="titulo-mdf">
+    <div class="container">
+      <div class="secao__cabeca secao__cabeca--linha sobe">
+        <div>
+          <p class="kicker"><span class="kicker__num">02</span>MDF premium</p>
+          <h2 id="titulo-mdf" style="margin-top: 16px">O MDF certo <em>muda o ambiente.</em></h2>
+        </div>
+        <p class="suave">A maior parte dos planejados da Madê é feita em MDF. Explore os padrões da Arauco e da Duratex: cores sólidas, amadeirados, madeiras brasileiras, alto brilho e texturas.</p>
+      </div>
+
+      <div class="mdf__porques sobe">
+        <div><b>Estável e versátil</b><p>Chapa de fibra de madeira revestida: o material da maioria dos móveis planejados, com centenas de padrões possíveis.</p></div>
+        <div><b>Cores e amadeirados</b><p>Dos tons lisos e foscos aos amadeirados de carvalho, nogueira, freijó e cumaru.</p></div>
+        <div><b>Fabricantes de referência</b><p>Arauco e Duratex, as mesmas marcas dos projetos que a Madê publica.</p></div>
+      </div>
+
+      <div class="mdf__explorador sobe">
+        <div class="mdf__lista">
+          <div class="mdf__familias" role="group" aria-label="Família de padrão" data-sem-traducao></div>
+          <div class="mdf__linha2">
+            <div class="mdf__marcas" role="group" aria-label="Marca" data-sem-traducao></div>
+            <label class="mdf__busca" data-sem-traducao><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><input type="search" maxlength="40" autocomplete="off"></label>
+          </div>
+          <p class="mdf__contagem" aria-live="polite" data-sem-traducao></p>
+          <div class="mdf__grade" data-sem-traducao></div>
+        </div>
+        <aside class="mdf__detalhe" aria-live="polite" data-sem-traducao></aside>
+      </div>
+      <p class="mdf__nota">Cores aproximadas na tela. Padrões e disponibilidade seguem o catálogo vigente de cada fabricante; a Madê leva o mostruário físico para você ver e tocar. Arauco e Duratex são marcas dos seus fabricantes.</p>
+    </div>
+  </section>
+
+  <!-- ===================== MONTE SEU AMBIENTE (assets/monte.js) ===================== -->
+  <section class="secao secao--escura escuro monte" id="monte" aria-labelledby="titulo-monte">
+    <div class="container">
+      <div class="secao__cabeca secao__cabeca--linha sobe">
+        <div>
+          <p class="kicker"><span class="kicker__num">03</span>Monte seu ambiente</p>
+          <h2 id="titulo-monte" style="margin-top: 16px">Escolha as cores. <em>Veja na hora.</em></h2>
+        </div>
+        <p class="suave">Combine os acabamentos que a Madê usa nos projetos e veja o ambiente mudar. Gostou? Mande a combinação junto com o pré-orçamento.</p>
+      </div>
+      <div class="monte__grade">
+        <div class="monte__visual sobe">
+          <div class="monte__palco" aria-live="polite" data-sem-traducao></div>
+          <div class="monte__resumo" aria-hidden="true" data-sem-traducao></div>
+          <p class="monte__nota">Ilustração para inspirar: as cores são aproximadas. A Madê leva as amostras reais e apresenta o projeto em 3D.</p>
+        </div>
+        <div class="monte__painel sobe sobe--2">
+          <p class="monte__rotulo">Paletas de projetos da Madê</p>
+          <div class="monte__prontas" data-sem-traducao></div>
+          <div class="monte__controles" data-sem-traducao></div>
+          <div class="monte__acoes">
+            <button class="btn btn--creme" type="button" data-monte="enviar">Quero este ambiente <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <button class="link-seta link-seta--claro" type="button" data-monte="compartilhar">Compartilhar combinação <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          </div>
+          <p class="monte__aviso" role="status" data-sem-traducao></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PARA QUEM ===================== -->
+  <section class="secao secao--alt" id="para-quem" aria-labelledby="titulo-para-quem">
+    <div class="container">
+      <div class="secao__cabeca sobe">
+        <p class="kicker"><span class="kicker__num">04</span>Para quem a Madê projeta</p>
+        <h2 id="titulo-para-quem">Da casa de praia <em>à pousada inteira.</em></h2>
+      </div>
+      <!-- TODO: confirmar com a dona — se já atendeu comércio e hospedagem, e exemplos para citar. -->
+      <div class="segmentos">
+        <article class="segmento sobe">
+          <span class="segmento__num">01</span>
+          <h3>Residencial</h3>
+          <ul><li>Casas</li><li>Apartamentos</li><li>Casas de praia</li></ul>
+          <p>Cozinha, quartos, closet, área gourmet ou a casa inteira, desenhados para a rotina de quem mora.</p>
+          <button class="link-seta" type="button" data-orcamento="Residencial">Pré-orçamento residencial <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </article>
+        <article class="segmento sobe sobe--2">
+          <span class="segmento__num">02</span>
+          <h3>Comercial</h3>
+          <ul><li>Lojas</li><li>Escritórios</li><li>Restaurantes e cafés</li><li>Clínicas</li></ul>
+          <p>Balcões, recepções, expositores e estações de trabalho que trabalham pela sua marca.</p>
+          <button class="link-seta" type="button" data-orcamento="Comercial">Pré-orçamento comercial <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </article>
+        <article class="segmento sobe sobe--3">
+          <span class="segmento__num">03</span>
+          <h3>Hospedagem</h3>
+          <ul><li>Pousadas</li><li>Hotéis</li><li>Aluguel por temporada</li></ul>
+          <p>Quartos, recepção e áreas comuns com a resistência que o litoral pede e a identidade que o hóspede lembra.</p>
+          <button class="link-seta" type="button" data-orcamento="Hospedagem">Pré-orçamento hospedagem <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PROCESSO ===================== -->
+  <section class="secao" id="processo" aria-labelledby="titulo-processo">
+    <div class="container">
+      <div class="processo">
+        <figure class="processo__img sobe sobe--img">
+          <!-- Arte da dona: projeto em 3D ao lado do resultado (post /p/Db-9QnqkbrV/). -->
+          <img src="assets/fotos/processo-3d.jpg" alt="Comparação entre o projeto em 3D e a cozinha pronta" width="864" height="1080" loading="lazy">
+        </figure>
+        <div>
+          <div class="secao__cabeca sobe">
+            <p class="kicker"><span class="kicker__num">05</span>Como funciona</p>
+            <h2 id="titulo-processo">Do projeto <em>à realidade.</em></h2>
+          </div>
+          <!-- TODO: confirmar com a dona — passos em termos gerais; ajustar prazos e etapas reais. -->
+          <ol class="passos" aria-label="Etapas do projeto">
+            <li class="passo sobe">
+              <span class="passo__num" aria-hidden="true">01</span>
+              <div><h3>Pré-orçamento e conversa</h3><p>Você conta o que precisa aqui no site ou no WhatsApp. A Madê entende o espaço, a rotina e o que não pode faltar.</p></div>
+            </li>
+            <li class="passo sobe sobe--2">
+              <span class="passo__num" aria-hidden="true">02</span>
+              <div><h3>Medição e projeto em 3D</h3><p>Com as medidas do espaço, cada ambiente é desenhado sob medida e apresentado em 3D: proporções, cores e materiais ajustados com você antes de qualquer corte.</p></div>
+            </li>
+            <li class="passo sobe sobe--3">
+              <span class="passo__num" aria-hidden="true">03</span>
+              <div><h3>Produção e montagem</h3><p>A peça nasce na oficina da Madê e chega pronta para a montagem, com o cuidado de quem sabe que você vai ver o resultado todos os dias.</p></div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== A MADÊ ===================== -->
+  <section class="secao secao--alt" id="a-made" aria-labelledby="titulo-made">
+    <div class="container">
+      <div class="sobre">
+        <figure class="sobe sobe--img">
+          <!-- Escada com adega e cristaleira (post /p/DNfsCqkxh2S/). TODO: confirmar com a dona — foto da oficina ou de quem faz. -->
+          <img src="assets/fotos/oficina.jpg" alt="Armário sob medida embaixo da escada, com adega e cristaleira" width="1200" height="900" loading="lazy">
+        </figure>
+        <div class="sobre__texto sobe sobe--2">
+          <p class="kicker"><span class="kicker__num">06</span>A Madê</p>
+          <h2 id="titulo-made">Marcenaria <em>e arte.</em></h2>
+          <!-- TODO: confirmar com a dona — história, quem assina, desde quando, onde fica a oficina. -->
+          <p>A Madê faz móveis para durar e para ter a cara de quem mora. Ambientes planejados em MDF premium e peças em madeira maciça que são móvel e arte ao mesmo tempo: cada projeto é desenhado, produzido e montado com atenção ao que só se nota de perto.</p>
+          <p class="sobre__frase">“Mais do que móveis, histórias.”</p>
+          <ul class="lista-simples">
+            <li>Projeto em 3D, sob medida para o seu espaço</li>
+            <li>Planejados em MDF Arauco e Duratex, e peças em madeira maciça, inclusive de demolição</li>
+            <li>No litoral, rodapés e molduras em madeira maciça, para durar mais</li>
+            <li>Atendimento em Garopaba, Imbituba e região</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DEPOIMENTOS (oculto até haver autorização expressa) ===================== -->
+  <!-- TODO: confirmar com a dona — depoimentos só com autorização expressa; remover o `hidden` e preencher. -->
+  <section class="secao" id="depoimentos" aria-labelledby="titulo-depoimentos" hidden>
+    <div class="container"><div class="secao__cabeca"><p class="kicker">Quem já tem um projeto da Madê</p><h2 id="titulo-depoimentos">Em casa, todo dia.</h2></div></div>
+  </section>
+
+  <!-- ===================== CHAMADA FINAL / CONTATO ===================== -->
+  <section class="chamada escuro" id="contato" aria-labelledby="titulo-contato">
+    <div class="container">
+      <div class="sobe">
+        <p class="kicker"><span class="kicker__num">07</span>Contato</p>
+        <h2 id="titulo-contato" style="margin-top: 16px">Vamos tirar o seu projeto <em>do papel?</em></h2>
+        <p>Faça o pré-orçamento em dois minutos ou chame direto no WhatsApp. A Madê responde com o próximo passo: uma conversa e a medição do espaço.</p>
+        <div class="chamada__acoes">
+          <button class="btn btn--creme" type="button" data-orcamento>Fazer pré-orçamento</button>
+          <a class="btn btn--linha-clara" href="falar/?de=contato">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.7-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.3-.9 2.1 0 .9.4 1.8 1 2.6 1.1 1.6 2.6 2.9 4.4 3.6.5.2.9.3 1.3.4.5.1 1 .1 1.5 0 .6-.2 1.1-.6 1.4-1.1.1-.3.2-.7.1-1l-.4-.2z"/></svg>
+            Falar no WhatsApp
+          </a>
+        </div>
+      </div>
+      <dl class="ficha sobe sobe--2">
+        <div><dt>WhatsApp</dt><dd><a data-tel href="tel:+5548992229202">(48) 99222-9202</a></dd></div>
+        <div><dt>Atendimento</dt><dd>Garopaba, Imbituba e região · SC</dd><!-- TODO: confirmar com a dona — horário e endereço, se for público. --></div>
+        <div><dt>Instagram</dt><dd><a data-insta-link href="https://www.instagram.com/made.marcenaria/" target="_blank" rel="noopener">@made.marcenaria</a></dd></div>
+      </dl>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===================== RODAPÉ ===================== -->
+<footer class="rodape">
+  <div class="container">
+    <div class="rodape__grade">
+      <div>
+        <a class="rodape__marca" href="#inicio" aria-label="Madê Marcenaria e Arte — início">
+          <img class="marca__disco" src="assets/logo.png" alt="" width="64" height="64">
+          <span class="marca marca__letreiro" aria-hidden="true"></span>
+        </a>
+        <p class="rodape__frase">Ambientes planejados e peças em madeira maciça. Projetamos seu estilo em cada detalhe.</p>
+      </div>
+      <div>
+        <h4>O site</h4>
+        <ul>
+          <li><a href="#projetos">Projetos</a></li>
+          <li><a href="#mdf">MDF premium</a></li>
+          <li><a href="#monte">Monte seu ambiente</a></li>
+          <li><a href="#para-quem">Para quem</a></li>
+          <li><a href="#processo">Como funciona</a></li>
+          <li><a href="#a-made">A Madê</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Falar com a Madê</h4>
+        <ul>
+          <li><button type="button" data-orcamento>Pré-orçamento</button></li>
+          <li><a href="falar/?de=rodape">WhatsApp</a></li>
+          <li><a data-insta-link href="https://www.instagram.com/made.marcenaria/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="links/">Todos os links</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="rodape__gigante" aria-hidden="true"><span class="marca__letreiro"></span></div>
+    <div class="rodape__base">
+      <span>© <span data-ano>2026</span> Madê Marcenaria · Garopaba, SC</span>
+      <span>Site por <a href="https://extremaconsultoria.com.br" target="_blank" rel="noopener">Extrema Consultoria</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Barra de ação no celular -->
+<div class="barra-fixa">
+  <button class="btn btn--bronze" type="button" data-orcamento>Fazer pré-orçamento</button>
+  <a class="btn btn--linha btn--icone" href="falar/?de=barra" aria-label="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.7-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.3-.9 2.1 0 .9.4 1.8 1 2.6 1.1 1.6 2.6 2.9 4.4 3.6.5.2.9.3 1.3.4.5.1 1 .1 1.5 0 .6-.2 1.1-.6 1.4-1.1.1-.3.2-.7.1-1l-.4-.2z"/></svg>
+  </a>
+</div>
+
+<!-- Lançador do assistente (desktop) -->
+<button class="lancador" type="button" data-orcamento aria-label="Abrir o assistente de pré-orçamento">
+  <img src="assets/logo.png" alt="" width="40" height="40">
+  Pré-orçamento
+</button>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Foto do projeto" aria-hidden="true">
+  <button class="lightbox__btn lightbox__fechar" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="lightbox__btn lightbox__ant" type="button" aria-label="Projeto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <figure><img alt="" width="1080" height="1350"><figcaption></figcaption></figure>
+  <button class="lightbox__btn lightbox__prox" type="button" aria-label="Próximo projeto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+</div>
+
+<script src="assets/i18n.js" defer></script>
+<script src="assets/site.js" defer></script>
+<script src="assets/orcamento.js" defer></script>
+<script src="assets/mdf-catalogo.js" defer></script>
+<script src="assets/monte.js" defer></script>
+<script src="assets/favoritos.js" defer></script>
+<script src="assets/mdf.js" defer></script>
+<script src="assets/medir.js" defer></script>
+</body>
+</html>
