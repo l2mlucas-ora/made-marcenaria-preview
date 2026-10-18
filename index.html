@@ -23,6 +23,10 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/styles.css">
+<!-- 3D (assets/cena3d.js): Three.js hospedado no próprio site (assets/vendor/three, MIT).
+     O mapa diz ao navegador onde "three" mora; nada é baixado até a pessoa chegar
+     perto do MDF ou do "Monte seu ambiente". -->
+<script type="importmap">{ "imports": { "three": "./assets/vendor/three/three.module.min.js", "three/addons/": "./assets/vendor/three/addons/" } }</script>
 <script>
   /* Tema antes de pintar a página (sem "piscar" claro → escuro).
      Escolha guardada no botão do topo; sem escolha, segue o sistema (CSS). */
@@ -508,6 +512,7 @@
 <script src="assets/monte.js" defer></script>
 <script src="assets/favoritos.js" defer></script>
 <script src="assets/mdf.js" defer></script>
+<script type="module" src="assets/cena3d.js"></script>
 <script src="assets/medir.js" defer></script>
 </body>
 </html>

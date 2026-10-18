@@ -131,12 +131,19 @@
   function detalhe(rolarNoCelular) {
     var x = escolhido;
     var d = el.detalhe;
+    // A prévia em 3D (assets/cena3d.js) é reaproveitada: recriar o canvas a cada
+    // clique abriria um contexto WebGL novo por padrão.
+    var prev3d = d.querySelector('.mdf__previa.tem-3d');
     d.textContent = '';
-    var prev = document.createElement('div'); prev.className = 'mdf__previa';
-    // Duas portas e um puxador: ver o padrão "virando móvel" ajuda mais que um quadrado.
-    prev.innerHTML = '<div class="mdf__porta"><i></i></div><div class="mdf__porta"><i></i></div>';
-    prev.querySelectorAll('.mdf__porta').forEach(function (p) { p.className = 'mdf__porta ' + fundo(x); p.style.setProperty('--cor', x.cor); });
+    var prev = prev3d || document.createElement('div');
+    if (!prev3d) {
+      prev.className = 'mdf__previa';
+      // Sem 3D: duas portas em CSS com puxador — o padrão "virando móvel".
+      prev.innerHTML = '<div class="mdf__porta"><i></i></div><div class="mdf__porta"><i></i></div>';
+      prev.querySelectorAll('.mdf__porta').forEach(function (p) { p.className = 'mdf__porta ' + fundo(x); p.style.setProperty('--cor', x.cor); });
+    }
     d.appendChild(prev);
+    document.dispatchEvent(new CustomEvent('made:mdf', { detail: x }));
 
     var info = document.createElement('div'); info.className = 'mdf__info';
     var k = document.createElement('p'); k.className = 'kicker'; k.textContent = T(NOME_FAMILIA[x.familia]);

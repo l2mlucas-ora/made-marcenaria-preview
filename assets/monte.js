@@ -307,11 +307,22 @@
   function desenhar() {
     var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + T('Ilustração: {d}', { d: descricao().join(', ') }).replace(/"/g, '') + '" preserveAspectRatio="xMidYMid slice">' +
       defs() + CENAS[estado.amb]() + '</svg>';
-    el.palco.innerHTML = svg; // só conteúdo nosso, sem nada digitado pela pessoa
+    // Troca só o SVG (só conteúdo nosso, sem nada digitado pela pessoa): o canvas
+    // do 3D (assets/cena3d.js), quando existe, mora no mesmo palco e fica.
+    var molde = document.createElement('template'); molde.innerHTML = svg;
+    var antigo = el.palco.querySelector('svg');
+    if (antigo) antigo.replaceWith(molde.content.firstChild); else el.palco.prepend(molde.content.firstChild);
     el.palco.classList.remove('troca'); void el.palco.offsetWidth; el.palco.classList.add('troca');
     el.resumo.textContent = '';
     descricao().forEach(function (t, i) { var s = document.createElement('span'); s.textContent = t; if (i === 0) s.className = 'monte__resumo-amb'; el.resumo.appendChild(s); });
     marcarControles();
+    document.dispatchEvent(new CustomEvent('made:monte', { detail: snapshot() }));
+  }
+
+  // O que o 3D precisa para desenhar a combinação atual.
+  function snapshot() {
+    return { amb: estado.amb, p: { cor: MAT[estado.p].cor, tipo: MAT[estado.p].tipo }, s: { cor: MAT[estado.s].cor, tipo: MAT[estado.s].tipo },
+      t: { cor: TAMPO[estado.t].cor, tipo: TAMPO[estado.t].tipo }, h: estado.h, led: !!estado.led };
   }
 
   function grupo(titulo, chave, itens, comAmostra) {
@@ -432,7 +443,7 @@
 
   // API para outros módulos (testes, link da bio)
   window.MadeMonte = {
-    estado: function () { return Object.assign({}, estado); }, descricao: descricao, codigo: codigo,
+    estado: function () { return Object.assign({}, estado); }, descricao: descricao, codigo: codigo, snapshot: snapshot,
     // Vem do explorador "Escolha seu MDF": slot 'p' (portas) ou 's' (aéreos/painéis).
     aplicarMDF: function (slot, item) {
       if (!MAT[item.id]) MAT[item.id] = { nome: item.nome, cor: item.cor, tipo: window.MadeCatalogoMDF.tipoDesenho(item.familia), marca: item.marca, linha: item.linha };

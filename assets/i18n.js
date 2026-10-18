@@ -388,6 +388,7 @@
     'A Madê faz móveis para durar e para ter a cara de quem mora. Ambientes planejados em MDF premium e peças em madeira maciça que são móvel e arte ao mesmo tempo: cada projeto é desenhado, produzido e montado com atenção ao que só se nota de perto.': ['Madê makes furniture built to last and to feel like the people who live with it. Premium MDF built-ins and solid wood pieces that are furniture and art at once: every project is designed, made and installed with attention to what you only notice up close.', 'Madê hace muebles para durar y para tener la cara de quien vive en la casa. Muebles a medida en MDF premium y piezas en madera maciza que son mueble y arte a la vez: cada proyecto se diseña, fabrica y monta cuidando lo que solo se nota de cerca.'],
     'Planejados em MDF Arauco e Duratex, e peças em madeira maciça, inclusive de demolição': ['Built-ins in Arauco and Duratex MDF, plus solid wood pieces, including reclaimed wood', 'Muebles en MDF Arauco y Duratex, y piezas en madera maciza, incluso de demolición'],
     'Pré-orçamento nº {n}': ['Estimate no. {n}', 'Presupuesto n.º {n}'],
+    'Arraste para girar': ['Drag to rotate', 'Arrastrá para girar'],
     'Outra cidade': ['Another city', 'Otra ciudad']
   };
 
