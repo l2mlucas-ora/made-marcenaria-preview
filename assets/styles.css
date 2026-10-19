@@ -193,13 +193,13 @@ p { max-width: 62ch; }
 
 /* ------------------------------------------------------------
    Logo. O letreiro é a arte oficial da casa recortada do fundo
-   (assets/logo-letreiro.png, pixels da própria arte) e usado como
+   (assets/logo-letreiro.png: o MADÊ da arte vetorizado + "Marcenaria", ver scripts/logo-2026/) e usado como
    MÁSCARA: a cor vem de currentColor — creme sobre o herói, bronze no
    topo claro. Nada é redesenhado.
    ------------------------------------------------------------ */
 .marca { display: inline-flex; align-items: center; text-decoration: none; color: inherit; }
 .marca__letreiro {
-  display: block; width: 140px; aspect-ratio: 1101 / 459;
+  display: block; width: 140px; aspect-ratio: 358 / 152;
   background: currentColor;
   -webkit-mask: url("logo-letreiro.png") center / contain no-repeat;
           mask: url("logo-letreiro.png") center / contain no-repeat;
