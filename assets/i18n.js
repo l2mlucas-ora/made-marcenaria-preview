@@ -50,6 +50,15 @@
 
     /* ---------- Faixa e manifesto ---------- */
     'Materiais com que a Madê trabalha': ['Materials Madê works with', 'Materiales con los que trabaja Madê'],
+    'Madê Marcenaria — ambientes planejados em Garopaba e Imbituba': ['Madê Marcenaria — custom interiors in Garopaba and Imbituba, Brazil', 'Madê Marcenaria — ambientes a medida en Garopaba e Imbituba, Brasil'],
+    'Ambientes e móveis planejados em MDF premium, Arauco e Duratex, em Garopaba e Imbituba: cozinhas, quartos, closets e áreas gourmet para casas, apartamentos, comércios e pousadas. Faça seu pré-orçamento.': ['Premium MDF custom interiors and furniture by Arauco and Duratex in Garopaba and Imbituba, Brazil: kitchens, bedrooms, closets and outdoor kitchens for houses, apartments, shops and guesthouses. Get your pre-quote.', 'Ambientes y muebles a medida en MDF premium, Arauco y Duratex, en Garopaba e Imbituba, Brasil: cocinas, dormitorios, vestidores y quinchos para casas, departamentos, comercios y posadas. Pedí tu presupuesto.'],
+    'Móveis planejados em MDF premium, da cozinha à casa inteira, para residências, comércios e pousadas.': ['Premium MDF custom furniture, from the kitchen to the whole house, for homes, shops and guesthouses.', 'Muebles a medida en MDF premium, de la cocina a la casa entera, para casas, comercios y posadas.'],
+    'Cada projeto começa no 3D e termina na sua rotina.': ['Every project starts in 3D and ends in your daily life.', 'Cada proyecto empieza en 3D y termina en tu rutina.'],
+    'Projeto, precisão': ['Design, precision', 'Proyecto, precisión'],
+    'Peças especiais': ['Special pieces', 'Piezas especiales'],
+    'Planejados em MDF Arauco e Duratex: cores sólidas, amadeirados e alto brilho': ['Built-ins in Arauco and Duratex MDF: solid colors, woodgrains and high gloss', 'Muebles en MDF Arauco y Duratex: colores lisos, maderados y alto brillo'],
+    'Móveis e ambientes planejados em MDF premium. Projetamos seu estilo em cada detalhe.': ['Premium MDF custom furniture and interiors. We design your style in every detail.', 'Muebles y ambientes a medida en MDF premium. Diseñamos tu estilo en cada detalle.'],
+    'Cozinhas, quartos, closets e áreas gourmet': ['Kitchens, bedrooms, closets and outdoor kitchens', 'Cocinas, dormitorios, vestidores y quinchos'],
     'O que a Madê faz': ['What Madê does', 'Lo que hace Madê'],
     'Ambientes planejados': ['Planned spaces', 'Ambientes a medida'],
     'Marcenaria inteligente': ['Smart cabinetry', 'Carpintería inteligente'],

@@ -864,3 +864,24 @@ p { max-width: 62ch; }
 .foto3d__acao { appearance: none; cursor: pointer; border: 1px solid rgb(244 239 231 / .4); background: transparent; color: #F4EFE7; border-radius: 999px; padding: 8px 14px; font: 500 .8rem/1 var(--fonte-corpo); }
 .foto3d__acao--principal { background: #F4EFE7; color: #1C1917; border-color: #F4EFE7; }
 .mdf__previa .foto3d__botao { top: 10px; right: 10px; }
+
+/* ------------------------------------------------------------
+   Acabamento premium (19/10/2026)
+   ------------------------------------------------------------ */
+/* Rótulo em inglês ao lado do kicker numerado: mesmo idioma nos três (data-sem-traducao) */
+.kicker__en {
+  font-family: var(--fonte-titulo); font-style: italic; font-weight: 400; font-size: 1.02rem;
+  letter-spacing: .02em; text-transform: none; opacity: .8; margin-left: 4px;
+}
+.kicker__en::before { content: "·"; margin-right: 10px; font-style: normal; opacity: .7; }
+@media (max-width: 560px) { .kicker__en { display: none; } }
+/* Herói: filete dourado antes da sobrelinha */
+.sobrelinha { display: inline-flex; align-items: center; gap: 16px; }
+.sobrelinha::before { content: ""; width: 44px; height: 1px; background: linear-gradient(90deg, transparent, var(--madeira)); }
+/* Lançador: ícone em disco bronze no lugar do logo miniatura */
+.lancador__icone { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--bronze); color: var(--creme); flex: none; }
+/* Grão de papel muito leve sobre a página inteira: tira o "chapado" digital dos fundos claros */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 999; pointer-events: none; opacity: .045; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23g)'/%3E%3C/svg%3E");
+}
