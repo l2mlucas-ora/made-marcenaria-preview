@@ -50,6 +50,12 @@
 
     /* ---------- Faixa e manifesto ---------- */
     'Materiais com que a Madê trabalha': ['Materials Madê works with', 'Materiales con los que trabaja Madê'],
+    'O que a Madê faz': ['What Madê does', 'Lo que hace Madê'],
+    'Ambientes planejados': ['Planned spaces', 'Ambientes a medida'],
+    'Marcenaria inteligente': ['Smart cabinetry', 'Carpintería inteligente'],
+    'Projeto em 3D': ['3D design', 'Proyecto en 3D'],
+    'Acabamento premium': ['Premium finish', 'Acabado premium'],
+    'Design sob medida': ['Made-to-measure design', 'Diseño a medida'],
     'Madeira grápia': ['Grápia wood', 'Madera grápia'],
     'Madeira de demolição': ['Reclaimed wood', 'Madera de demolición'],
     'Palha natural': ['Natural cane', 'Esterilla natural'],
