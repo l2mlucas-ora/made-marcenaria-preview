@@ -199,7 +199,7 @@ p { max-width: 62ch; }
    ------------------------------------------------------------ */
 .marca { display: inline-flex; align-items: center; text-decoration: none; color: inherit; }
 .marca__letreiro {
-  display: block; width: 140px; aspect-ratio: 358 / 152;
+  display: block; width: 140px; aspect-ratio: 358 / 177;
   background: currentColor;
   -webkit-mask: url("logo-letreiro.png") center / contain no-repeat;
           mask: url("logo-letreiro.png") center / contain no-repeat;
