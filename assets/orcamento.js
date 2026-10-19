@@ -230,7 +230,7 @@
       '<div class="orc__topo">' +
         '<button class="orc__voltar" type="button" aria-label="Voltar uma pergunta" hidden>' + ICONE.voltar + '</button>' +
         '<img src="' + logo + '" alt="" width="40" height="40">' +
-        '<div><b id="orc-titulo">Pré-orçamento</b><small>Madê Marcenaria e Arte</small></div>' +
+        '<div><b id="orc-titulo">Pré-orçamento</b><small>Madê Marcenaria</small></div>' +
         '<button class="orc__fechar" type="button" aria-label="Fechar o assistente">' + ICONE.fechar + '</button>' +
       '</div>' +
       '<div class="orc__progresso" aria-hidden="true"><span></span></div>' +
@@ -272,7 +272,7 @@
   function traduzirMoldura() {
     if (!el.caixa) return;
     el.caixa.querySelector('#orc-titulo').textContent = T('Pré-orçamento');
-    el.caixa.querySelector('.orc__topo small').textContent = T('Madê Marcenaria e Arte');
+    el.caixa.querySelector('.orc__topo small').textContent = T('Madê Marcenaria');
     el.caixa.querySelector('.orc__aviso').textContent = T('Nada fica salvo no site. Suas respostas vão só na mensagem que você enviar.');
     el.caixa.querySelector('label[for="orc-campo"]').textContent = T('Sua resposta');
     el.caixa.querySelector('.orc__form button').setAttribute('aria-label', T('Enviar resposta'));
