@@ -243,7 +243,7 @@
     'O site': ['The site', 'El sitio'],
     'Falar com a Madê': ['Talk to Madê', 'Hablar con Madê'],
     'Todos os links': ['All links', 'Todos los links'],
-    'Site por': ['Site by', 'Sitio por'],
+    'Desenvolvido por Extrema Consultoria': ['Developed by Extrema Consultoria', 'Desarrollado por Extrema Consultoria'],
     'Abrir o assistente de pré-orçamento': ['Open the estimate assistant', 'Abrir el asistente de presupuesto'],
 
     /* ---------- Link da bio ---------- */

@@ -580,6 +580,8 @@ p { max-width: 62ch; }
    Rodapé
    ------------------------------------------------------------ */
 .rodape { background: var(--grafite); color: var(--creme); padding: var(--s6) 0 var(--s5); border-top: 1px solid var(--linha-escura); }
+/* No desktop o lançador do pré-orçamento flutua no canto: o rodapé termina acima dele (o crédito da Extrema fica visível). */
+@media (min-width: 900px) { .rodape { padding-bottom: 104px; } }
 .rodape__grade { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: var(--s5); align-items: start; }
 @media (max-width: 899px) { .rodape__grade { grid-template-columns: 1fr; gap: var(--s4); } }
 .rodape__marca { display: flex; align-items: center; gap: 16px; }
@@ -592,8 +594,12 @@ p { max-width: 62ch; }
 /* Marca d'água: a arte só tem 500 px; em tamanho de tela inteira ela fica discreta de propósito. */
 .rodape__gigante { margin-top: var(--s7); color: var(--creme); opacity: .1; }
 .rodape__gigante .marca__letreiro { width: 100%; }
-.rodape__base { margin-top: var(--s5); padding-top: var(--s3); border-top: 1px solid var(--linha-escura); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; font-size: .84rem; color: rgb(244 239 231 / .62); }
+.rodape__base { margin-top: var(--s5); padding-top: var(--s3); border-top: 1px solid var(--linha-escura); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-size: .84rem; color: rgb(244 239 231 / .62); }
 .rodape__base a { color: inherit; }
+/* Crédito do desenvolvedor (Extrema Consultoria): só o ícone, discreto, como no site da Target. */
+.credito-dev { display: inline-flex; align-items: center; opacity: .75; transition: opacity var(--dur) var(--ease); }
+.credito-dev:hover, .credito-dev:focus-visible { opacity: 1; }
+.credito-dev img { display: block; border-radius: 6px; }
 
 /* ------------------------------------------------------------
    Páginas de passagem (404)
