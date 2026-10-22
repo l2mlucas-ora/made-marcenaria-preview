@@ -211,6 +211,18 @@
         escolherHistoria(abas[novo], true);
       });
     }
+    // Link direto para um capítulo (o link da bio usa #historia-adega etc.): abre a aba e rola até a seção.
+    var abrirPeloEndereco = function () {
+      var alvo = location.hash.match(/^#historia-([\w-]+)$/);
+      var aba = alvo && document.getElementById('aba-' + alvo[1]);
+      if (!aba) return;
+      escolherHistoria(aba, false);
+      // Instantâneo: a rolagem suave começava antes de as fotos carregarem e parava no meio da página.
+      document.getElementById('historias').scrollIntoView({ behavior: 'instant', block: 'start' });
+    };
+    abrirPeloEndereco();
+    if (document.readyState !== 'complete') window.addEventListener('load', abrirPeloEndereco, { once: true });
+    window.addEventListener('hashchange', abrirPeloEndereco);
     document.querySelectorAll('.historia__nav').forEach(function (nav) {
       var fotos = nav.parentNode.querySelectorAll('figure img');
       var conta = nav.querySelector('.historia__conta');

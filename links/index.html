@@ -34,135 +34,198 @@
 
 
 <style>
-  /* A folha do site traz os tokens. Aqui fica só o que é exclusivo desta
-     página — a coluna única de celular, escura como o perfil do Instagram. */
+  /* Link da bio (refeito em 21/10/2026, pedido do Lucas: "mais moderno"). A folha do site traz
+     os tokens; aqui fica só o que é desta página. Fundo = as duas capas do site alternando;
+     véu, cartões e texto mudam com o tema (claro por padrão, escuro pelo botão ou pelo sistema). */
+  .bio {
+    --bio-veu: linear-gradient(180deg, rgb(244 239 231 / .55) 0%, rgb(244 239 231 / .78) 38%, rgb(244 239 231 / .94) 100%);
+    --bio-cartao: rgb(255 255 255 / .62);
+    --bio-cartao-hover: rgb(255 255 255 / .82);
+    --bio-borda: rgb(28 25 23 / .1);
+    --bio-texto: var(--grafite);
+    --bio-suave: #4A433C;
+    --bio-acento: var(--bronze);
+  }
+  :root[data-tema="escuro"] .bio {
+    --bio-veu: linear-gradient(180deg, rgb(21 18 15 / .5) 0%, rgb(21 18 15 / .76) 38%, rgb(21 18 15 / .94) 100%);
+    --bio-cartao: rgb(28 25 23 / .55);
+    --bio-cartao-hover: rgb(42 37 33 / .78);
+    --bio-borda: rgb(244 239 231 / .14);
+    --bio-texto: var(--creme);
+    --bio-suave: rgb(244 239 231 / .74);
+    --bio-acento: var(--bronze-claro);
+  }
   body.bio {
-    min-height: 100svh;
-    display: flex; flex-direction: column; align-items: center;
-    padding: 40px 20px 40px;
-    background:
-      radial-gradient(70% 40% at 50% 0%, rgb(176 142 94 / .22), transparent 70%),
-      var(--grafite);
-    color: var(--creme);
+    min-height: 100svh; display: flex; flex-direction: column; align-items: center;
+    padding: 0 20px 40px; background: var(--grafite); color: var(--bio-texto);
   }
+  body.bio::after { display: none; }   /* sem o grão de papel do site: a foto já tem textura */
+
+  .bio__fundo { position: fixed; inset: 0; z-index: -2; overflow: hidden; background: var(--grafite); }
+  .bio__fundo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; animation: respira 28s ease-in-out infinite alternate; }
+  .bio__fundo .bio__alt { opacity: 0; animation: respira 28s ease-in-out infinite alternate, alterna 22s ease-in-out infinite; }
+  .bio__fundo::after { content: ""; position: absolute; inset: 0; background: var(--bio-veu); -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px); transition: background 400ms var(--ease); }
+
+  .bio__topo { width: 100%; max-width: 460px; display: flex; justify-content: space-between; align-items: center; padding: 18px 0 0; }
+  .bio__topo .idiomas, .bio__topo .tema-btn { background: var(--bio-cartao); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+
   .coluna { width: 100%; max-width: 460px; display: flex; flex-direction: column; align-items: center; }
+  .bio__marca { margin-top: 30px; width: 104px; height: 104px; border-radius: 50%; box-shadow: 0 18px 40px -16px rgb(28 25 23 / .55), 0 0 0 1px var(--bio-borda); }
+  .bio h1 { font-size: clamp(2.2rem, 9vw, 2.6rem); margin-top: 18px; font-weight: 300; letter-spacing: -.01em; text-align: center; }
+  .bio h1 em { color: var(--bio-acento); }
+  .bio__arroba { margin-top: 10px; font-size: .72rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--bio-acento); text-decoration: none; }
+  .bio__frase { text-align: center; margin-top: 12px; max-width: 32ch; color: var(--bio-suave); font-size: .96rem; }
 
-  .bio__marca { width: 112px; height: 112px; border-radius: 50%; filter: drop-shadow(0 0 30px rgb(176 142 94 / .35)); }
-  .bio__marca.sem-logo { display: none; }
-  .bio h1 { font-size: 2rem; margin-top: 18px; font-weight: 400; letter-spacing: .02em; }
-  .bio__arroba {
-    margin-top: 8px; font-size: .74rem; letter-spacing: .2em; text-transform: uppercase;
-    color: var(--bronze-claro); text-decoration: none;
-  }
-  .bio__frase { text-align: center; margin-top: 14px; max-width: 30ch; color: rgb(244 239 231 / .72); font-size: .98rem; }
-
-  .lista { width: 100%; display: flex; flex-direction: column; gap: 10px; margin-top: 30px; }
-
+  .lista { width: 100%; display: flex; flex-direction: column; gap: 10px; margin-top: 28px; }
   .lk {
     display: flex; align-items: center; gap: 14px; width: 100%;
-    background: var(--grafite-2); border: 1px solid var(--linha-escura);
-    border-radius: 6px; padding: 16px 18px;
-    text-decoration: none; color: var(--creme);
-    transition: transform 120ms ease-out, border-color var(--dur) var(--ease);
+    background: var(--bio-cartao); border: 1px solid var(--bio-borda); border-radius: 16px; padding: 14px 16px 14px 14px;
+    -webkit-backdrop-filter: blur(16px) saturate(1.2); backdrop-filter: blur(16px) saturate(1.2);
+    text-decoration: none; color: var(--bio-texto);
+    transition: transform 160ms var(--ease), background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
   }
-  .lk:hover { border-color: rgb(176 142 94 / .6); }
+  .lk:hover { background: var(--bio-cartao-hover); border-color: color-mix(in srgb, var(--bio-acento) 55%, transparent); }
   .lk:active { transform: scale(.985); }
-  .lk .ico { flex: none; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; color: var(--bronze-claro); }
-  .lk .ico svg { width: 24px; height: 24px; }
-  .lk b { display: block; font-family: var(--fonte-titulo); font-weight: 500; font-size: 1.22rem; line-height: 1.1; }
-  .lk small { display: block; font-size: .84rem; color: rgb(244 239 231 / .62); margin-top: 3px; }
+  .lk .ico { flex: none; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center; color: var(--bio-acento); background: color-mix(in srgb, var(--bio-acento) 12%, transparent); }
+  .lk .ico svg { width: 22px; height: 22px; }
+  .lk__txt { flex: 1; min-width: 0; }
+  .lk b { display: block; font-family: var(--fonte-titulo); font-weight: 500; font-size: 1.24rem; line-height: 1.1; }
+  .lk small { display: block; font-size: .84rem; color: var(--bio-suave); margin-top: 3px; }
+  .lk__seta { flex: none; width: 18px; height: 18px; opacity: .55; transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease); }
+  .lk:hover .lk__seta { transform: translateX(3px); opacity: 1; }
 
-  /* Destaque: o WhatsApp é bronze, texto creme — a variante define a cor. */
-  .lk--destaque { background: var(--bronze); border-color: var(--bronze); color: var(--creme); }
-  .lk--destaque .ico { color: var(--creme); }
-  .lk--destaque small { color: rgb(244 239 231 / .8); }
-  .lk--destaque:hover { border-color: var(--bronze-claro); }
-
-  /* Link sem destino fica apagado, nunca clicável. */
+  /* Destaque: o WhatsApp é bronze, texto creme nos dois temas — a variante define a cor. */
+  .lk--destaque { background: var(--bronze); border-color: var(--bronze); color: var(--creme); box-shadow: 0 16px 34px -18px rgb(94 71 36 / .9); }
+  .lk--destaque:hover { background: var(--bronze-escuro); border-color: var(--bronze-escuro); }
+  .lk--destaque .ico { color: var(--creme); background: rgb(244 239 231 / .14); }
+  .lk--destaque small { color: rgb(244 239 231 / .86); }
   .lk[aria-disabled="true"] { opacity: .42; pointer-events: none; }
 
-  .bio__risco { width: 90px; height: 1px; background: var(--bronze-claro); opacity: .6; margin-top: 34px; }
-  .bio__rod {
-    margin-top: 18px; text-align: center; font-size: .8rem; color: rgb(244 239 231 / .55);
-    display: flex; flex-direction: column; align-items: center; gap: 8px;
-  }
+  /* Histórias: três projetos em destaque; cada um abre o capítulo dele no site. */
+  .bio__secao { width: 100%; margin-top: 30px; display: flex; justify-content: space-between; align-items: baseline; }
+  .bio__secao p { font-size: .7rem; font-weight: 500; letter-spacing: .24em; text-transform: uppercase; color: var(--bio-acento); }
+  .bio__secao a { font-size: .82rem; color: var(--bio-suave); }
+  .bio__historias { width: 100%; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+  .bio__hist { position: relative; aspect-ratio: 3 / 4; border-radius: 14px; overflow: hidden; display: block; color: var(--creme); text-decoration: none; border: 1px solid var(--bio-borda); }
+  .bio__hist img { width: 100%; height: 100%; object-fit: cover; transition: transform 700ms var(--ease); }
+  .bio__hist:hover img { transform: scale(1.06); }
+  .bio__hist span { position: absolute; inset: auto 0 0 0; padding: 26px 9px 9px; font-family: var(--fonte-titulo); font-size: 1rem; line-height: 1.1; background: linear-gradient(180deg, transparent, rgb(28 25 23 / .85)); }
+
+  .bio__rod { margin-top: 30px; text-align: center; font-size: .8rem; color: var(--bio-suave); display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .bio__rod a { color: inherit; }
+
+  /* Entrada em cascata, uma vez (o bloco de movimento reduzido da folha desliga). */
+  .bio-entra { opacity: 0; transform: translateY(14px); animation: entra .8s var(--ease) forwards; }
+  .lista .lk:nth-child(1) { animation-delay: .25s; } .lista .lk:nth-child(2) { animation-delay: .31s; }
+  .lista .lk:nth-child(3) { animation-delay: .37s; } .lista .lk:nth-child(4) { animation-delay: .43s; }
+  .lista .lk:nth-child(5) { animation-delay: .49s; } .lista .lk:nth-child(6) { animation-delay: .55s; }
+  @media (prefers-reduced-motion: reduce) { .bio-entra { opacity: 1 !important; transform: none !important; } .bio__fundo img { animation: none !important; } }
 </style>
 </head>
 
 <body class="bio" data-zap="5548992229202" data-insta="made.marcenaria">
+<!-- Fundo: as mesmas duas capas do herói (geradas por IA, decisão 37), alternando devagar. -->
+<div class="bio__fundo" aria-hidden="true">
+  <img src="../assets/fotos/capa-ambiente.jpg" alt="" width="2560" height="1429" fetchpriority="high">
+  <img class="bio__alt" src="../assets/fotos/capa-ambiente-2.jpg" alt="" width="2560" height="1429" decoding="async" fetchpriority="low">
+</div>
+
+<!-- Idioma e tema (pedido do Lucas, 21/10/2026 — antes o link da bio não tinha seletor, decisão 30). -->
+<div class="bio__topo">
+  <div class="idiomas" role="group" aria-label="Idioma" data-sem-traducao>
+    <button type="button" data-idioma="pt" aria-pressed="true" lang="pt-BR" title="Português">PT</button>
+    <button type="button" data-idioma="en" aria-pressed="false" lang="en" title="English">EN</button>
+    <button type="button" data-idioma="es" aria-pressed="false" lang="es" title="Español">ES</button>
+  </div>
+  <button class="tema-btn" type="button" data-tema-botao aria-label="Mudar para tema escuro">
+    <svg class="sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg>
+    <svg class="lua" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+  </button>
+</div>
+
 <main class="coluna">
 
   <!-- Logo oficial: disco gerado de scripts/logo-2026/ (MADÊ vetorizado da arte da dona). -->
-  <img class="bio__marca" src="../assets/logo.png" alt="Madê Marcenaria" width="112" height="112">
-  <h1>Madê Marcenaria</h1>
-  <a class="bio__arroba" data-insta-link href="https://www.instagram.com/made.marcenaria/" target="_blank" rel="noopener">@made.marcenaria</a>
-  <p class="bio__frase">Ambientes planejados. Projetamos seu estilo em cada detalhe. Garopaba, Imbituba e região.</p>
+  <img class="bio__marca bio-entra" src="../assets/logo.png" alt="Madê Marcenaria" width="104" height="104">
+  <h1 class="bio-entra" style="animation-delay: .08s" data-sem-traducao>Madê <em>Marcenaria</em></h1>
+  <a class="bio__arroba bio-entra" style="animation-delay: .14s" data-insta-link href="https://www.instagram.com/made.marcenaria/" target="_blank" rel="noopener">@made.marcenaria</a>
+  <p class="bio__frase bio-entra" style="animation-delay: .2s">Ambientes planejados. Projetamos seu estilo em cada detalhe. Garopaba, Imbituba e região.</p>
 
   <nav class="lista" aria-label="Links da Madê">
-    <a class="lk lk--destaque" href="../falar/?de=bio">
-      <span class="ico">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.7-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.3-.9 2.1 0 .9.4 1.8 1 2.6 1.1 1.6 2.6 2.9 4.4 3.6.5.2.9.3 1.3.4.5.1 1 .1 1.5 0 .6-.2 1.1-.6 1.4-1.1.1-.3.2-.7.1-1l-.4-.2z"/></svg>
-      </span>
-      <span>
-        <b>Falar no WhatsApp</b>
-        <small>Conversar sobre o seu projeto</small>
-      </span>
-    </a>
+      <a class="bio-entra lk lk--destaque" href="../falar/?de=bio">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.7-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.3-.9 2.1 0 .9.4 1.8 1 2.6 1.1 1.6 2.6 2.9 4.4 3.6.5.2.9.3 1.3.4.5.1 1 .1 1.5 0 .6-.2 1.1-.6 1.4-1.1.1-.3.2-.7.1-1l-.4-.2z"/></svg></span>
+        <span class="lk__txt">
+          <b>Falar no WhatsApp</b>
+          <small>Conversar sobre o seu projeto</small>
+        </span>
+        <svg class="lk__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
 
-    <a class="lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=orcamento#orcamento">
-      <span class="ico">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg>
-      </span>
-      <span>
-        <b>Pré-orçamento em 2 minutos</b>
-        <small>Casa, apartamento, comércio ou pousada</small>
-      </span>
-    </a>
+      <a class="bio-entra lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=orcamento#orcamento">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H8l-4 4z"/><path d="M8 9h8M8 12h5"/></svg></span>
+        <span class="lk__txt">
+          <b>Pré-orçamento em 2 minutos</b>
+          <small>Casa, apartamento, comércio ou pousada</small>
+        </span>
+        <svg class="lk__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
 
-    <a class="lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=links#projetos">
-      <span class="ico">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>
-      </span>
-      <span>
-        <b>Projetos</b>
-        <small>Cozinhas, quartos, closets e áreas gourmet</small>
-      </span>
-    </a>
+      <a class="bio-entra lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=links#projetos">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></span>
+        <span class="lk__txt">
+          <b>Projetos</b>
+          <small>Cozinhas, quartos, closets e áreas gourmet</small>
+        </span>
+        <svg class="lk__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
 
-    <a class="lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=links#processo">
-      <span class="ico">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h13"/></svg>
-      </span>
-      <span>
-        <b>Como funciona</b>
-        <small>Conversa, projeto, produção e montagem</small>
-      </span>
-    </a>
+      <a class="bio-entra lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=links#processo">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h13"/></svg></span>
+        <span class="lk__txt">
+          <b>Como funciona</b>
+          <small>Conversa, projeto, produção e montagem</small>
+        </span>
+        <svg class="lk__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
 
-    <a class="lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=links">
-      <span class="ico">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg>
-      </span>
-      <span>
-        <b>Site da Madê</b>
-        <!-- TODO: confirmar com a dona — domínio final. -->
-        <small>mademarcenaria.com.br</small>
-      </span>
-    </a>
+      <a class="bio-entra lk" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=links">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11 12 3l9 8"/><path d="M5 10v10h14V10"/></svg></span>
+        <span class="lk__txt">
+          <b>Site da Madê</b>
+          <!-- TODO: confirmar com a dona — domínio final. -->
+          <small>mademarcenaria.com.br</small>
+        </span>
+        <svg class="lk__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
 
-    <a class="lk" data-insta-link href="https://www.instagram.com/made.marcenaria/" target="_blank" rel="noopener">
-      <span class="ico">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
-      </span>
-      <span>
-        <b>Instagram</b>
-        <small>@made.marcenaria</small>
-      </span>
-    </a>
+      <a class="bio-entra lk" href="https://www.instagram.com/made.marcenaria/" data-insta-link target="_blank" rel="noopener">
+        <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg></span>
+        <span class="lk__txt">
+          <b>Instagram</b>
+          <small>@made.marcenaria</small>
+        </span>
+        <svg class="lk__seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
   </nav>
 
-  <div class="bio__risco"></div>
+  <div class="bio__secao bio-entra" style="animation-delay: .6s">
+    <p>Projetos em destaque</p>
+    <a href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=historias#historias">Ver todos</a>
+  </div>
+  <div class="bio__historias bio-entra" style="animation-delay: .66s">
+        <a class="bio__hist" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=historias#historia-adega">
+          <img src="../assets/fotos/cozinha-adega.jpg" alt="" width="1080" height="1350" loading="lazy" decoding="async">
+          <span>Adega iluminada</span>
+        </a>
+        <a class="bio__hist" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=historias#historia-escritorio">
+          <img src="../assets/fotos/escritorio.jpg" alt="" width="1080" height="1350" loading="lazy" decoding="async">
+          <span>Escritório para dois</span>
+        </a>
+        <a class="bio__hist" href="../?utm_source=instagram&amp;utm_medium=bio&amp;utm_campaign=historias#historia-closet">
+          <img src="../assets/fotos/closet.jpg" alt="" width="710" height="888" loading="lazy" decoding="async">
+          <span>Closet ele e ela</span>
+        </a>
+  </div>
 
   <div class="bio__rod">
     <span>© <span data-ano>2026</span> Madê Marcenaria · Garopaba, SC</span>

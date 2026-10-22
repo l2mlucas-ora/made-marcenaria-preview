@@ -422,6 +422,7 @@
     'conta uma história.': ['tells a story.', 'cuenta una historia.'],
     'Muito mais que móveis: um pedido, um espaço e a solução que a Madê desenhou para ele. Escolha um capítulo.': ['Much more than furniture: a wish, a space and the solution Madê designed for it. Pick a chapter.', 'Mucho más que muebles: un pedido, un espacio y la solución que Madê diseñó para él. Elegí un capítulo.'],
     'Projetos em destaque': ['Featured projects', 'Proyectos destacados'],
+    'Ver todos': ['See all', 'Ver todos'],
     'Foto anterior': ['Previous photo', 'Foto anterior'],
     'Próxima foto': ['Next photo', 'Foto siguiente'],
     'Ver no Instagram': ['See it on Instagram', 'Ver en Instagram'],
