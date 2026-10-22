@@ -8,6 +8,13 @@
      Madeiras Brasileiras, Tecidos, Pedras; texturas Matt, Trend, Poro,
      Bold, Nature, Chess, TX, Couro)
    - duratexmadeira.com.br (linhas Design, Essencial Wood, Cristallo, Trama)
+   Berneck e Guararapes entraram em 21/10/2026 (pedido do Lucas: marcas com
+   que a Madê trabalha), nomes e linhas conferidos em:
+   - berneck.com.br/en/products/bp-berneck/catalog (a 2ª palavra é a
+     textura: Tx, Vel, Micro, Grann, Poro, Design, Alumi; coleções Legado
+     2026 e Horizontes)
+   - guararapes.com.br/produtos/mdf/decorativos/ (linhas Colors, Madeiras
+     do Mundo, Madeiras do Brasil, Magma, Metalic)
 
    A COR (hex) É APROXIMAÇÃO NOSSA, para a tela. A referência é a amostra
    física — o site diz isso ao lado do catálogo. Disponibilidade muda com
@@ -100,7 +107,42 @@
     p('d-preto', 'Preto', 'Duratex', 'Cristallo', 'brilho', '#151515'),
 
     /* ---------- Duratex · Trama ---------- */
-    p('d-gianduia-trama', 'Gianduia', 'Duratex', 'Trama', 'textura', '#5C4A3F', 'Guarda-roupa com porta de espelho')
+    p('d-gianduia-trama', 'Gianduia', 'Duratex', 'Trama', 'textura', '#5C4A3F', 'Guarda-roupa com porta de espelho'),
+    /* ---------- Berneck (BP) ---------- */
+    p('b-branco', 'Branco', 'Berneck', 'Tx', 'solido', '#F2F1EC'),
+    p('b-super-white', 'Super White', 'Berneck', 'Micro', 'solido', '#F7F7F4'),
+    p('b-gelo', 'Gelo', 'Berneck', 'Vel', 'solido', '#E4E2DC'),
+    p('b-cinza-cristal', 'Cinza Cristal', 'Berneck', 'Tx', 'solido', '#B9B8B3'),
+    p('b-chumbo', 'Chumbo', 'Berneck', 'Micro', 'solido', '#4A4A48'),
+    p('b-azul-galeno', 'Azul Galeno', 'Berneck', 'Legado · Micro', 'solido', '#3E5566'),
+    p('b-sky', 'Sky', 'Berneck', 'Vel', 'solido', '#A7B8C2'),
+    p('b-latte', 'Latte', 'Berneck', 'Horizontes · Micro', 'solido', '#CDB89D'),
+    p('b-carvalho-japandi', 'Carvalho Japandi', 'Berneck', 'Micro', 'madeira', '#C9AC86'),
+    p('b-carvalho-treviso', 'Carvalho Treviso', 'Berneck', 'Design', 'madeira', '#A9875E'),
+    p('b-nogal-sevilha', 'Nogal Sevilha', 'Berneck', 'Poro', 'madeira', '#6B4A33'),
+    p('b-freijo-nativo', 'Freijó Nativo', 'Berneck', 'Legado · Grann', 'brasileira', '#B88A57'),
+    p('b-jequitiba-brasil', 'Jequitibá Brasil', 'Berneck', 'Legado · Grann', 'brasileira', '#C2915F'),
+    p('b-mogno-imperial', 'Mogno Imperial', 'Berneck', 'Legado · Grann', 'brasileira', '#7A3F2A'),
+    p('b-volakas', 'Volakas', 'Berneck', 'Micro', 'textura', '#E4E1DC'),
+    p('b-terrazza', 'Terrazza', 'Berneck', 'Micro', 'textura', '#D8D2C8'),
+    p('b-gold', 'Gold', 'Berneck', 'Horizontes · Alumi', 'textura', '#B8975A'),
+
+    /* ---------- Guararapes ---------- */
+    p('g-maxi-branco', 'Maxi Branco', 'Guararapes', 'Colors · Matt', 'solido', '#F5F5F2'),
+    p('g-nuvem', 'Nuvem', 'Guararapes', 'Colors', 'solido', '#DAD8D3'),
+    p('g-cinza-urban', 'Cinza Urban', 'Guararapes', 'Colors', 'solido', '#8E8E8B'),
+    p('g-grafite', 'Grafite', 'Guararapes', 'Colors', 'solido', '#3D3F42'),
+    p('g-verde-oliva', 'Verde Oliva', 'Guararapes', 'Colors · Matt', 'solido', '#6F7350'),
+    p('g-alecrim', 'Alecrim', 'Guararapes', 'Colors', 'solido', '#8B977C'),
+    p('g-azul-petroleo', 'Azul Petróleo', 'Guararapes', 'Colors', 'solido', '#2F4D57'),
+    p('g-areia', 'Areia', 'Guararapes', 'Colors', 'solido', '#D4C6AE'),
+    p('g-carvalho-nordico', 'Carvalho Nórdico', 'Guararapes', 'Madeiras do Mundo · Deep Wood', 'madeira', '#CDBFA8'),
+    p('g-fresno-douro', 'Fresno Douro', 'Guararapes', 'Madeiras do Mundo · Syncro Ash', 'madeira', '#D6B98C'),
+    p('g-nogueira-ambar', 'Nogueira Âmbar', 'Guararapes', 'Madeiras do Mundo', 'madeira', '#8A5A35'),
+    p('g-freijo', 'Freijó', 'Guararapes', 'Madeiras do Brasil · Syncro', 'brasileira', '#B08A5E'),
+    p('g-imbuia', 'Imbuia', 'Guararapes', 'Madeiras do Brasil', 'brasileira', '#5E4130'),
+    p('g-marmo', 'Marmo', 'Guararapes', 'Magma 3D', 'textura', '#2E2B2A'),
+    p('g-corten', 'Corten', 'Guararapes', 'Metalic', 'textura', '#8B4A2B')
   ];
 
   // Família → como o configurador desenha (textura de madeira, laca lisa, trama, brilho)

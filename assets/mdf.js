@@ -2,7 +2,8 @@
    Madê Marcenaria — "Escolha seu MDF" (explorador do catálogo)
 
    O MDF é o material da maioria dos planejados da Madê. Esta seção deixa
-   o cliente passear pelos padrões premium da Arauco e da Duratex:
+   o cliente passear pelos padrões premium da Arauco, Duratex, Berneck
+   e Guararapes:
    filtra por família (cores sólidas, amadeirados, madeiras brasileiras,
    alto brilho, texturas), por marca, busca pelo nome, e vê a amostra
    grande numa porta de verdade (com puxador).
@@ -70,7 +71,7 @@
       el.familias.appendChild(b);
     });
     el.marcas.textContent = '';
-    [['todas', 'Todas as marcas'], ['Arauco', 'Arauco'], ['Duratex', 'Duratex'], ['made', 'Usados pela Madê']].forEach(function (m) {
+    [['todas', 'Todas as marcas'], ['Arauco', 'Arauco'], ['Duratex', 'Duratex'], ['Berneck', 'Berneck'], ['Guararapes', 'Guararapes'], ['made', 'Usados pela Madê']].forEach(function (m) {
       var b = document.createElement('button');
       b.type = 'button'; b.className = 'mdf__chip mdf__chip--leve'; b.dataset.marca = m[0];
       b.textContent = T(m[1]);

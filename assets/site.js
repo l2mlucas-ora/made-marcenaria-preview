@@ -178,6 +178,55 @@
   }
 
   /* ----------------------------------------------------------
+     Histórias — abas entre os projetos em destaque (setas do teclado
+     andam entre as abas) e fotos em sequência dentro de cada um.
+     Sem JS, as histórias aparecem uma embaixo da outra.
+     ---------------------------------------------------------- */
+  var abas = document.querySelectorAll('.historias__aba');
+  var historias = document.querySelectorAll('.historia');
+  if (abas.length) {
+    var escolherHistoria = function (aba, focar) {
+      for (var h = 0; h < abas.length; h++) {
+        var sim = abas[h] === aba;
+        abas[h].setAttribute('aria-selected', sim ? 'true' : 'false');
+        abas[h].tabIndex = sim ? 0 : -1;
+        var painel = document.getElementById(abas[h].getAttribute('aria-controls'));
+        painel.hidden = !sim;
+        if (sim && !reduzido) { painel.classList.remove('entrando'); void painel.offsetWidth; painel.classList.add('entrando'); }
+      }
+      if (focar) aba.focus();
+      aba.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+    };
+    for (var h0 = 1; h0 < historias.length; h0++) historias[h0].hidden = true;
+    for (var h1 = 0; h1 < abas.length; h1++) {
+      abas[h1].addEventListener('click', function () { escolherHistoria(this, false); });
+      abas[h1].addEventListener('keydown', function (e) {
+        var i = Array.prototype.indexOf.call(abas, this), novo = -1;
+        if (e.key === 'ArrowRight') novo = (i + 1) % abas.length;
+        else if (e.key === 'ArrowLeft') novo = (i - 1 + abas.length) % abas.length;
+        else if (e.key === 'Home') novo = 0;
+        else if (e.key === 'End') novo = abas.length - 1;
+        if (novo < 0) return;
+        e.preventDefault();
+        escolherHistoria(abas[novo], true);
+      });
+    }
+    document.querySelectorAll('.historia__nav').forEach(function (nav) {
+      var fotos = nav.parentNode.querySelectorAll('figure img');
+      var conta = nav.querySelector('.historia__conta');
+      var atualFoto = 0;
+      nav.addEventListener('click', function (e) {
+        var b = e.target.closest('[data-passo]');
+        if (!b) return;
+        fotos[atualFoto].hidden = true;
+        atualFoto = (atualFoto + Number(b.getAttribute('data-passo')) + fotos.length) % fotos.length;
+        fotos[atualFoto].hidden = false;
+        conta.textContent = (atualFoto + 1) + ' / ' + fotos.length;
+      });
+    });
+  }
+
+  /* ----------------------------------------------------------
      Filtro da galeria por ambiente (data-ambiente).
      ---------------------------------------------------------- */
   var filtros = document.querySelectorAll('.filtro');

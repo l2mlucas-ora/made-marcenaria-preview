@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Madê Marcenaria — ambientes planejados em Garopaba e Imbituba</title>
-<meta name="description" content="Ambientes e móveis planejados em MDF premium, Arauco e Duratex, em Garopaba e Imbituba: cozinhas, quartos, closets e áreas gourmet para casas, apartamentos, comércios e pousadas. Faça seu pré-orçamento.">
+<meta name="description" content="Ambientes e móveis planejados em MDF premium Arauco, Duratex, Berneck e Guararapes, com ferragens Häfele e FGVTN, em Garopaba e Imbituba: cozinhas, quartos, closets e áreas gourmet para casas, apartamentos, comércios e pousadas. Faça seu pré-orçamento.">
 <!-- TODO: confirmar com a dona — domínio final (canonical, OG e JSON-LD usam mademarcenaria.com.br por enquanto). -->
 <link rel="canonical" href="https://www.mademarcenaria.com.br/">
 <meta property="og:type" content="website">
@@ -18,7 +18,7 @@
 <meta name="theme-color" content="#1C1917">
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/favicon-180.png">
-<link rel="preload" as="image" href="assets/fotos/capa-tronco.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/fotos/capa-ambiente.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@400;500;600&display=swap">
@@ -85,7 +85,7 @@
     </div>
     <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><span></span></button>
     <nav class="menu" id="menu" aria-label="Seções do site">
-      <a href="#projetos">Projetos</a>
+      <a href="#historias">Projetos</a>
       <a href="#mdf">MDF</a>
       <a href="#monte">Monte o seu</a>
       <a href="#processo">Como funciona</a>
@@ -102,9 +102,11 @@
   <section class="heroi" aria-labelledby="titulo-heroi">
     <div id="inicio-sentinela" aria-hidden="true"></div>
     <div class="heroi__fundo">
-      <!-- Corte de tronco com os anéis da madeira — a primeira foto de madeira do
-           Instagram (post fixado /p/DFGRiScRxeQ/), escolha do Lucas em 17/10/2026. -->
-      <img src="assets/fotos/capa-tronco.jpg" alt="" width="1800" height="1800" fetchpriority="high">
+      <!-- Capa nova (pedido do Lucas, 21/10/2026): dois grandes ambientes planejados GERADOS POR IA
+           (originais 5504 px em marca/capa-ia-2026-10-21/). Não são obras entregues pela Madê
+           (o Lucas tirou o selo "Imagem ilustrativa": é o tipo de projeto que ela faz) — nunca usar no portfólio. A capa antiga (corte do tronco) continua em capa-tronco.jpg. -->
+      <img src="assets/fotos/capa-ambiente.jpg" alt="" width="2560" height="1429" fetchpriority="high">
+      <img class="heroi__alt" src="assets/fotos/capa-ambiente-2.jpg" alt="" width="2560" height="1429" decoding="async" fetchpriority="low">
     </div>
     <div class="heroi__veu" aria-hidden="true"></div>
     <div class="heroi__luz" aria-hidden="true"></div>
@@ -120,7 +122,7 @@
           <p>Móveis planejados em MDF premium, da cozinha à casa inteira, para residências, comércios e pousadas.</p>
           <div class="heroi__acoes">
             <button class="btn btn--creme" type="button" data-orcamento>Fazer pré-orçamento <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-            <a class="link-seta link-seta--claro" href="#projetos">Ver projetos <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+            <a class="link-seta link-seta--claro" href="#historias">Ver projetos <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
           </div>
         </div>
       </div>
@@ -156,12 +158,164 @@
     </div>
   </section>
 
+  <!-- ===================== HISTÓRIAS (projetos em destaque) =====================
+       Pedido do Lucas (21/10/2026), com a Thonet Interiores e a Mobliares como referência:
+       cada projeto em destaque conta a sua história. Abas em site.js; sem JS, tudo aparece em sequência.
+       TODO: confirmar com a dona — fotos originais em alta e se quer outros projetos aqui. -->
+  <section class="historias escuro" id="historias" aria-labelledby="titulo-historias">
+    <div class="container">
+      <div class="secao__cabeca secao__cabeca--linha sobe">
+        <div>
+          <p class="kicker"><span class="kicker__num">01</span>Histórias<span class="kicker__en" lang="en" data-sem-traducao>Featured projects</span></p>
+          <h2 id="titulo-historias" style="margin-top: 16px">Cada projeto <em>conta uma história.</em></h2>
+        </div>
+        <p class="suave">Muito mais que móveis: um pedido, um espaço e a solução que a Madê desenhou para ele. Escolha um capítulo.</p>
+      </div>
+
+      <div class="historias__abas sobe" role="tablist" aria-label="Projetos em destaque">
+        <button class="historias__aba" type="button" role="tab" id="aba-salvia" aria-controls="historia-salvia" aria-selected="true"><span class="historias__num">01</span><span class="historias__nome">Cozinha verde-sálvia</span><small>Cozinha</small></button>
+        <button class="historias__aba" type="button" role="tab" id="aba-adega" aria-controls="historia-adega" aria-selected="false" tabindex="-1"><span class="historias__num">02</span><span class="historias__nome">Adega iluminada</span><small>Cozinha integrada</small></button>
+        <button class="historias__aba" type="button" role="tab" id="aba-escritorio" aria-controls="historia-escritorio" aria-selected="false" tabindex="-1"><span class="historias__num">03</span><span class="historias__nome">Escritório para dois</span><small>Escritório</small></button>
+        <button class="historias__aba" type="button" role="tab" id="aba-mono" aria-controls="historia-mono" aria-selected="false" tabindex="-1"><span class="historias__num">04</span><span class="historias__nome">Cozinha monocromática</span><small>Cozinha</small></button>
+        <button class="historias__aba" type="button" role="tab" id="aba-closet" aria-controls="historia-closet" aria-selected="false" tabindex="-1"><span class="historias__num">05</span><span class="historias__nome">Closet ele e ela</span><small>Closet</small></button>
+      </div>
+
+      <!-- Post /p/DcrjEx3xTH5/ — texto só com o que a dona escreveu na legenda. -->
+      <article class="historia" id="historia-salvia" role="tabpanel" aria-labelledby="aba-salvia">
+        <div class="historia__fotos">
+          <figure>
+              <img src="assets/fotos/cozinha-salvia.jpg" alt="Cozinha planejada em verde-sálvia com bancada branca e janela" width="864" height="1080" loading="lazy">
+              <img src="assets/fotos/cozinha-paineis.jpg" alt="Torre de eletros em verde-sálvia com painéis cinza nas paredes" width="864" height="1080" loading="lazy" hidden>
+          </figure>
+            <div class="historia__nav" data-sem-traducao>
+              <button type="button" class="historia__seta" data-passo="-1" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+              <span class="historia__conta" aria-live="polite">1 / 2</span>
+              <button type="button" class="historia__seta" data-passo="1" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          <span class="historia__marca" aria-hidden="true">01</span>
+        </div>
+        <div class="historia__texto">
+          <p class="historia__olho">Moderna, acolhedora e sofisticada</p>
+          <h3>Cozinha <em>verde-sálvia</em></h3>
+          <p>O verde-sálvia dá o tom; o branco, o cinza e o aço escovado equilibram. As paredes ganharam painéis em cinza e a torre de eletros veio na mesma cor dos armários. Do projeto em 3D à montagem, feita em parceria com a @marchi.montagens.</p>
+          <dl class="historia__ficha">
+              <div><dt>Ambiente</dt><dd>Cozinha</dd></div>
+              <div><dt>Paleta</dt><dd>Verde-sálvia, branco e cinza</dd></div>
+              <div><dt>Detalhes</dt><dd>Aço escovado e painéis nas paredes</dd></div>
+          </dl>
+          <div class="historia__acoes">
+            <button class="btn btn--creme" type="button" data-orcamento>Quero um projeto assim <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="link-seta link-seta--claro" href="https://www.instagram.com/made.marcenaria/p/DcrjEx3xTH5/" target="_blank" rel="noopener">Ver no Instagram <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+      <!-- Fotos em alta enviadas em 21/10/2026. TODO: confirmar com a dona — padrão do MDF, pedra e post de origem; o texto descreve só o que a foto mostra. -->
+      <article class="historia" id="historia-adega" role="tabpanel" aria-labelledby="aba-adega">
+        <div class="historia__fotos">
+          <figure>
+              <img src="assets/fotos/cozinha-adega.jpg" alt="Cozinha amadeirada com torre de nichos iluminados, adega e bancada em pedra escura" width="1080" height="1350" loading="lazy">
+              <img src="assets/fotos/cozinha-adega-balcao.jpg" alt="Bancada em pedra escura com queda até o piso diante da torre iluminada" width="1080" height="1350" loading="lazy" hidden>
+          </figure>
+            <div class="historia__nav" data-sem-traducao>
+              <button type="button" class="historia__seta" data-passo="-1" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+              <span class="historia__conta" aria-live="polite">1 / 2</span>
+              <button type="button" class="historia__seta" data-passo="1" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            </div>
+          <span class="historia__marca" aria-hidden="true">02</span>
+        </div>
+        <div class="historia__texto">
+          <p class="historia__olho">Luz no lugar certo</p>
+          <h3>Adega <em>iluminada</em></h3>
+          <p>Aéreos amadeirados até o teto, uma torre com nichos iluminados por LED e adega para as garrafas, e uma bancada em pedra escura que desce até o piso e separa a cozinha da sala.</p>
+          <dl class="historia__ficha">
+              <div><dt>Ambiente</dt><dd>Cozinha integrada</dd></div>
+              <div><dt>Destaque</dt><dd>Nichos com LED e adega</dd></div>
+              <div><dt>Bancada</dt><dd>Pedra escura com queda até o piso</dd></div>
+          </dl>
+          <div class="historia__acoes">
+            <button class="btn btn--creme" type="button" data-orcamento>Quero um projeto assim <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="link-seta link-seta--claro" data-insta-link href="https://www.instagram.com/made.marcenaria/" target="_blank" rel="noopener">Mais no Instagram <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+      <!-- Foto em alta enviada em 21/10/2026; frases da legenda do post /p/DavF5AHRYTO/. TODO: confirmar com a dona — materiais. -->
+      <article class="historia" id="historia-escritorio" role="tabpanel" aria-labelledby="aba-escritorio">
+        <div class="historia__fotos">
+          <figure>
+              <img src="assets/fotos/escritorio.jpg" alt="Escritório planejado com bancada dupla, painel amadeirado e prateleira iluminada" width="1080" height="1350" loading="lazy">
+          </figure>
+          <span class="historia__marca" aria-hidden="true">03</span>
+        </div>
+        <div class="historia__texto">
+          <p class="historia__olho">Design, conforto e funcionalidade</p>
+          <h3>Escritório <em>para dois</em></h3>
+          <p>Uma bancada contínua para duas pessoas trabalharem lado a lado, gaveteiros sob medida, painel amadeirado para a TV e uma prateleira com luz embutida de ponta a ponta. Um espaço projetado para organizar, com cada detalhe pensado para o dia a dia.</p>
+          <dl class="historia__ficha">
+              <div><dt>Ambiente</dt><dd>Escritório</dd></div>
+              <div><dt>Programa</dt><dd>Bancada dupla e gaveteiros</dd></div>
+              <div><dt>Luz</dt><dd>Prateleira com LED embutido</dd></div>
+          </dl>
+          <div class="historia__acoes">
+            <button class="btn btn--creme" type="button" data-orcamento>Quero um projeto assim <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="link-seta link-seta--claro" data-insta-link href="https://www.instagram.com/made.marcenaria/" target="_blank" rel="noopener">Mais no Instagram <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+      <!-- Post /p/DS5dfY-kf-9/ (foto em alta enviada em 21/10/2026, recortada sem o letreiro da arte). -->
+      <article class="historia" id="historia-mono" role="tabpanel" aria-labelledby="aba-mono">
+        <div class="historia__fotos">
+          <figure>
+              <img src="assets/fotos/cozinha-monocromatica.jpg" alt="Cozinha pequena toda em MDF Beige Matt da Arauco, com nicho aberto sob os aéreos" width="1600" height="1168" loading="lazy">
+          </figure>
+          <span class="historia__marca" aria-hidden="true">04</span>
+        </div>
+        <div class="historia__texto">
+          <p class="historia__olho">Poucos metros, uma cor só</p>
+          <h3>Cozinha <em>monocromática</em></h3>
+          <p>Armários, bancada e prateleiras no mesmo Beige Matt, da Arauco. Com uma paleta única, o olhar não encontra divisões e a cozinha pequena parece maior.</p>
+          <dl class="historia__ficha">
+              <div><dt>Ambiente</dt><dd>Cozinha</dd></div>
+              <div><dt>MDF</dt><dd>Beige Matt · Arauco</dd></div>
+              <div><dt>A ideia</dt><dd>Uma cor só para ampliar</dd></div>
+          </dl>
+          <div class="historia__acoes">
+            <button class="btn btn--creme" type="button" data-orcamento>Quero um projeto assim <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="link-seta link-seta--claro" href="https://www.instagram.com/made.marcenaria/p/DS5dfY-kf-9/" target="_blank" rel="noopener">Ver no Instagram <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+      <!-- Post /p/DFK03tIRqSP/ — texto só com o que a dona escreveu na legenda. -->
+      <article class="historia" id="historia-closet" role="tabpanel" aria-labelledby="aba-closet">
+        <div class="historia__fotos">
+          <figure>
+              <img src="assets/fotos/closet.jpg" alt="Closet planejado em MDF Cumaru" width="710" height="888" loading="lazy">
+          </figure>
+          <span class="historia__marca" aria-hidden="true">05</span>
+        </div>
+        <div class="historia__texto">
+          <p class="historia__olho">Espaços iguais, rotinas diferentes</p>
+          <h3>Closet <em>ele e ela</em></h3>
+          <p>Uma parede de 2,80 m dividida em duas metades iguais, uma para cada um. O amadeirado Cumaru Trend, da Arauco, aquece o ambiente e deixa a marcenaria com cara de casa.</p>
+          <dl class="historia__ficha">
+              <div><dt>Ambiente</dt><dd>Closet</dd></div>
+              <div><dt>Medida</dt><dd>2,80 m de parede</dd></div>
+              <div><dt>MDF</dt><dd>Cumaru Trend · Arauco</dd></div>
+          </dl>
+          <div class="historia__acoes">
+            <button class="btn btn--creme" type="button" data-orcamento>Quero um projeto assim <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+            <a class="link-seta link-seta--claro" href="https://www.instagram.com/made.marcenaria/p/DFK03tIRqSP/" target="_blank" rel="noopener">Ver no Instagram <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
   <!-- ===================== PROJETOS ===================== -->
   <section class="secao" id="projetos" aria-labelledby="titulo-projetos">
     <div class="container">
       <div class="secao__cabeca secao__cabeca--linha sobe">
         <div>
-          <p class="kicker"><span class="kicker__num">01</span>Projetos<span class="kicker__en" lang="en" data-sem-traducao>Portfolio</span></p>
+          <p class="kicker"><span class="kicker__num">02</span>Projetos<span class="kicker__en" lang="en" data-sem-traducao>Portfolio</span></p>
           <h2 id="titulo-projetos" style="margin-top: 16px">Projeto, precisão <em>e detalhe.</em></h2>
         </div>
         <p class="suave">Cada ambiente é desenhado para a casa onde vai morar. Projetos que saíram da oficina da Madê, com as palavras de quem fez.</p>
@@ -179,12 +333,36 @@
       <!-- Fotos dos posts do @made.marcenaria (baixadas em 17/10/2026, recortadas sem os
            textos das artes; brutos em marca/instagram-bruto/). Títulos das legendas da dona.
            TODO: confirmar com a dona — trocar pelos originais em alta quando ela mandar. -->
-      <!-- 12 fotos: destaque (2x4) + largo (2x2) + 10 normais — conta fechada para a grade de 4 colunas não deixar buraco. -->
+      <!-- 16 fotos: destaque (2x4) + largo (2x2) + 14 normais — conta fechada para a grade de 4 colunas não deixar buraco. -->
       <div class="mosaico">
         <div class="peca peca--destaque sobe sobe--img" data-ambiente="cozinha">
           <button class="projeto" type="button">
           <img src="assets/fotos/cozinha-salvia.jpg" alt="Cozinha planejada em verde-sálvia com bancada branca e janela" width="864" height="1080" loading="lazy">
           <figcaption><span class="kicker">Cozinha</span><b>Verde-sálvia</b><small>Branco, cinza e aço escovado</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img" data-ambiente="cozinha">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/cozinha-adega.jpg" alt="Cozinha amadeirada com torre de nichos iluminados, adega e bancada em pedra escura" width="1080" height="1350" loading="lazy">
+          <figcaption><span class="kicker">Cozinha</span><b>Adega iluminada</b><small>Nichos com LED até o teto</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img sobe--2" data-ambiente="cozinha">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/cozinha-clara.jpg" alt="Cozinha em amadeirado claro com puxadores pretos e bancada escura" width="1080" height="1350" loading="lazy">
+          <figcaption><span class="kicker">Cozinha</span><b>Amadeirado e preto</b><small>Puxadores pretos e nichos abertos</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img sobe--3" data-ambiente="cozinha">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/cozinha-monocromatica.jpg" alt="Cozinha pequena toda em MDF Beige Matt da Arauco" width="1600" height="1168" loading="lazy">
+          <figcaption><span class="kicker">Cozinha</span><b>Monocromática</b><small>Beige Matt, da Arauco</small></figcaption>
+        </button>
+        </div>
+        <div class="peca sobe sobe--img" data-ambiente="cozinha">
+          <button class="projeto" type="button">
+          <img src="assets/fotos/cozinha-adega-balcao.jpg" alt="Bancada em pedra escura com queda até o piso" width="1080" height="1350" loading="lazy">
+          <figcaption><span class="kicker">Cozinha</span><b>Bancada em pedra</b><small>Com queda até o piso</small></figcaption>
         </button>
         </div>
         <div class="peca sobe sobe--img sobe--2" data-ambiente="cozinha">
@@ -225,7 +403,7 @@
         </div>
         <div class="peca sobe sobe--img sobe--2" data-ambiente="escritorio">
           <button class="projeto" type="button">
-          <img src="assets/fotos/escritorio.jpg" alt="Escritório planejado com bancada dupla e painel ripado" width="800" height="1000" loading="lazy">
+          <img src="assets/fotos/escritorio.jpg" alt="Escritório planejado com bancada dupla, painel amadeirado e prateleira iluminada" width="1080" height="1350" loading="lazy">
           <figcaption><span class="kicker">Escritório</span><b>Para organizar o dia</b><small>Design, conforto e função</small></figcaption>
         </button>
         </div>
@@ -268,16 +446,16 @@
     <div class="container">
       <div class="secao__cabeca secao__cabeca--linha sobe">
         <div>
-          <p class="kicker"><span class="kicker__num">02</span>MDF premium<span class="kicker__en" lang="en" data-sem-traducao>Material library</span></p>
+          <p class="kicker"><span class="kicker__num">03</span>MDF premium<span class="kicker__en" lang="en" data-sem-traducao>Material library</span></p>
           <h2 id="titulo-mdf" style="margin-top: 16px">O MDF certo <em>muda o ambiente.</em></h2>
         </div>
-        <p class="suave">A maior parte dos planejados da Madê é feita em MDF. Explore os padrões da Arauco e da Duratex: cores sólidas, amadeirados, madeiras brasileiras, alto brilho e texturas.</p>
+        <p class="suave">A maior parte dos planejados da Madê é feita em MDF. Explore os padrões da Arauco, Duratex, Berneck e Guararapes: cores sólidas, amadeirados, madeiras brasileiras, alto brilho e texturas.</p>
       </div>
 
       <div class="mdf__porques sobe">
         <div><b>Estável e versátil</b><p>Chapa de fibra de madeira revestida: o material da maioria dos móveis planejados, com centenas de padrões possíveis.</p></div>
         <div><b>Cores e amadeirados</b><p>Dos tons lisos e foscos aos amadeirados de carvalho, nogueira, freijó e cumaru.</p></div>
-        <div><b>Fabricantes de referência</b><p>Arauco e Duratex, as mesmas marcas dos projetos que a Madê publica.</p></div>
+        <div><b>Fabricantes de referência</b><p>Arauco, Duratex, Berneck e Guararapes: as chapas premium com que a Madê trabalha.</p></div>
       </div>
 
       <div class="mdf__explorador sobe">
@@ -292,7 +470,38 @@
         </div>
         <aside class="mdf__detalhe" aria-live="polite" data-sem-traducao></aside>
       </div>
-      <p class="mdf__nota">Cores aproximadas na tela. Padrões e disponibilidade seguem o catálogo vigente de cada fabricante; a Madê leva o mostruário físico para você ver e tocar. Arauco e Duratex são marcas dos seus fabricantes.</p>
+      <!-- Marcas com que a Madê trabalha (pedido do Lucas, 21/10/2026). Nomes oficiais conferidos nos sites
+           dos fabricantes: FGVTN (fgvtn.com.br), Häfele (hafele.com.br), Italy Line (italyline.com.br),
+           Zen Design (zendesign.com.br). Só o nome, em texto — sem logotipo de terceiros. -->
+      <div class="marcas sobe">
+        <div class="marcas__cabeca">
+          <h3>Marcas que assinam <em>cada detalhe.</em></h3>
+          <p class="suave">Por fora, o padrão de MDF que você escolheu. Por dentro, corrediças, dobradiças e puxadores das marcas de referência: o que se sente a cada porta e gaveta aberta.</p>
+          <!-- Moodboard da própria Madê (foto enviada em 21/10/2026): palha, amadeirado e puxador Italy Line dourado. -->
+          <figure class="marcas__foto">
+            <img src="assets/fotos/moodboard-italyline.jpg" alt="Moodboard da Madê com palha natural, MDF amadeirado e puxador dourado Italy Line na caixa" width="1080" height="1350" loading="lazy">
+          </figure>
+        </div>
+        <div class="marcas__grupo">
+          <p class="marcas__rotulo">Chapas de MDF</p>
+          <ul>
+            <li><b data-sem-traducao>Arauco</b><small>Cores, madeiras e texturas</small></li>
+            <li><b data-sem-traducao>Duratex</b><small>Design, Essencial Wood e Cristallo</small></li>
+            <li><b data-sem-traducao>Berneck</b><small>Coleções Legado e Horizontes</small></li>
+            <li><b data-sem-traducao>Guararapes</b><small>Colors e Madeiras do Brasil</small></li>
+          </ul>
+        </div>
+        <div class="marcas__grupo">
+          <p class="marcas__rotulo">Ferragens e metais</p>
+          <ul>
+            <li><b data-sem-traducao>FGVTN</b><small>Corrediças, dobradiças e gavetas metálicas</small></li>
+            <li><b data-sem-traducao>Häfele</b><small>Articuladores, gavetas e iluminação</small></li>
+            <li><b data-sem-traducao>Italy Line</b><small>Puxadores e metais decorativos</small></li>
+            <li><b data-sem-traducao>Zen Design</b><small>Puxadores em zamac</small></li>
+          </ul>
+        </div>
+      </div>
+      <p class="mdf__nota">Cores aproximadas na tela. Padrões e disponibilidade seguem o catálogo vigente de cada fabricante; a Madê leva o mostruário físico para você ver e tocar. Arauco, Duratex, Berneck, Guararapes, FGVTN, Häfele, Italy Line e Zen Design são marcas dos seus fabricantes.</p>
     </div>
   </section>
 
@@ -301,7 +510,7 @@
     <div class="container">
       <div class="secao__cabeca secao__cabeca--linha sobe">
         <div>
-          <p class="kicker"><span class="kicker__num">03</span>Monte seu ambiente<span class="kicker__en" lang="en" data-sem-traducao>Design studio</span></p>
+          <p class="kicker"><span class="kicker__num">04</span>Monte seu ambiente<span class="kicker__en" lang="en" data-sem-traducao>Design studio</span></p>
           <h2 id="titulo-monte" style="margin-top: 16px">Escolha as cores. <em>Veja na hora.</em></h2>
         </div>
         <p class="suave">Combine os acabamentos que a Madê usa nos projetos e veja o ambiente mudar. Gostou? Mande a combinação junto com o pré-orçamento.</p>
@@ -330,7 +539,7 @@
   <section class="secao secao--alt" id="para-quem" aria-labelledby="titulo-para-quem">
     <div class="container">
       <div class="secao__cabeca sobe">
-        <p class="kicker"><span class="kicker__num">04</span>Para quem a Madê projeta<span class="kicker__en" lang="en" data-sem-traducao>Clients</span></p>
+        <p class="kicker"><span class="kicker__num">05</span>Para quem a Madê projeta<span class="kicker__en" lang="en" data-sem-traducao>Clients</span></p>
         <h2 id="titulo-para-quem">Da casa de praia <em>à pousada inteira.</em></h2>
       </div>
       <!-- TODO: confirmar com a dona — se já atendeu comércio e hospedagem, e exemplos para citar. -->
@@ -370,7 +579,7 @@
         </figure>
         <div>
           <div class="secao__cabeca sobe">
-            <p class="kicker"><span class="kicker__num">05</span>Como funciona<span class="kicker__en" lang="en" data-sem-traducao>Process</span></p>
+            <p class="kicker"><span class="kicker__num">06</span>Como funciona<span class="kicker__en" lang="en" data-sem-traducao>Process</span></p>
             <h2 id="titulo-processo">Do projeto <em>à realidade.</em></h2>
           </div>
           <!-- TODO: confirmar com a dona — passos em termos gerais; ajustar prazos e etapas reais. -->
@@ -402,15 +611,15 @@
           <img src="assets/fotos/oficina.jpg" alt="Armário sob medida embaixo da escada, com adega e cristaleira" width="1200" height="900" loading="lazy">
         </figure>
         <div class="sobre__texto sobe sobe--2">
-          <p class="kicker"><span class="kicker__num">06</span>A Madê<span class="kicker__en" lang="en" data-sem-traducao>About</span></p>
+          <p class="kicker"><span class="kicker__num">07</span>A Madê<span class="kicker__en" lang="en" data-sem-traducao>About</span></p>
           <h2 id="titulo-made">A casa inteira, <em>planejada.</em></h2>
           <!-- TODO: confirmar com a dona — história, quem assina, desde quando, onde fica a oficina. -->
-          <p>A Madê faz ambientes planejados em MDF premium, Arauco e Duratex, com foco em projetos grandes: a casa inteira, pousadas e hospedagens, lojas e escritórios, obras com arquiteto. Cada ambiente é desenhado em 3D, produzido e montado com atenção ao que só se nota de perto. A madeira maciça entra como detalhe, onde faz diferença.</p>
+          <p>A Madê faz ambientes planejados em MDF premium, Arauco, Duratex, Berneck e Guararapes, com foco em projetos grandes: a casa inteira, pousadas e hospedagens, lojas e escritórios, obras com arquiteto. Cada ambiente é desenhado em 3D, produzido e montado com atenção ao que só se nota de perto. A madeira maciça entra como detalhe, onde faz diferença.</p>
           <p class="sobre__frase">“Mais do que móveis, histórias.”</p>
           <ul class="lista-simples">
             <li>Casas inteiras, hospedagem e comércio, também em parceria com o seu arquiteto</li>
             <li>Projeto em 3D, sob medida para o seu espaço</li>
-            <li>Planejados em MDF Arauco e Duratex: cores sólidas, amadeirados e alto brilho</li>
+            <li>MDF Arauco, Duratex, Berneck e Guararapes; ferragens e metais FGVTN, Häfele, Italy Line e Zen Design</li>
             <li>Atendimento em Garopaba, Imbituba e região</li>
           </ul>
         </div>
@@ -428,7 +637,7 @@
   <section class="chamada escuro" id="contato" aria-labelledby="titulo-contato">
     <div class="container">
       <div class="sobe">
-        <p class="kicker"><span class="kicker__num">07</span>Contato<span class="kicker__en" lang="en" data-sem-traducao>Contact</span></p>
+        <p class="kicker"><span class="kicker__num">08</span>Contato<span class="kicker__en" lang="en" data-sem-traducao>Contact</span></p>
         <h2 id="titulo-contato" style="margin-top: 16px">Vamos tirar o seu projeto <em>do papel?</em></h2>
         <p>Faça o pré-orçamento em dois minutos ou chame direto no WhatsApp. A Madê responde com o próximo passo: uma conversa e a medição do espaço.</p>
         <div class="chamada__acoes">
