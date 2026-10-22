@@ -447,7 +447,7 @@ p { max-width: 62ch; }
 .historias .suave { color: rgb(244 239 231 / .72); }
 .historias h2 em, .historias h3 em { color: var(--madeira); }
 
-.historias__abas { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--linha-escura); margin-bottom: var(--s6); }
+.historias__abas { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid var(--linha-escura); margin-bottom: var(--s6); }
 .historias__aba {
   appearance: none; background: none; border: 0; text-align: left; cursor: pointer; position: relative;
   display: grid; grid-template-columns: auto 1fr; column-gap: 14px; align-items: baseline;
