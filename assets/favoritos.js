@@ -3,7 +3,7 @@
 
    Cada foto do mosaico tem um coração. O que a pessoa curte vira o
    "seu moodboard": um contador flutuante, e a lista vai junto na
-   mensagem do pré-orçamento ("Referências que curti: Verde-sálvia,
+   mensagem do "Comece seu projeto" ("Referências que curti: Verde-sálvia,
    Banco ripado"). É o jeito mais curto de a dona saber o gosto do
    cliente antes da primeira conversa.
 

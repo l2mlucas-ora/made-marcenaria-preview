@@ -10,7 +10,7 @@
 
    Dali ele pode:
    - aplicar o padrão nas portas ou nos aéreos do "Monte seu ambiente";
-   - guardar no moodboard (vai como referência no pré-orçamento).
+   - guardar no moodboard (vai como referência no "Comece seu projeto").
 
    Dados em assets/mdf-catalogo.js. As cores na tela são aproximadas —
    o aviso fica visível ao lado do catálogo.

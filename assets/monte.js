@@ -12,7 +12,7 @@
    portas "parecem" madeira, e não só uma cor chapada.
 
    A combinação escolhida:
-   - vai junto no pré-orçamento (window.MadeOrcamento.abrir);
+   - vai junto no "Comece seu projeto" (window.MadeOrcamento.abrir);
    - pode virar link para compartilhar (#monte=cozinha-salvia-…), útil
      para mandar ao cônjuge ou ao arquiteto. Nada pessoal vai no link.
 

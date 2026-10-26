@@ -1,5 +1,5 @@
 /* ============================================================
-   Madê Marcenaria — assistente de pré-orçamento
+   Madê Marcenaria — assistente "Comece seu projeto"
 
    Conversa guiada que organiza o pedido antes de chegar no WhatsApp:
    tipo de cliente (residencial, comercial, hospedagem), imóvel,
@@ -57,7 +57,7 @@
       placeholder: 'Seu primeiro nome',
       pular: 'Prefiro não dizer',
       pergunta: function () {
-        return 'Olá! Sou o assistente de pré-orçamento da Madê.\nEm uns 2 minutos eu organizo as informações do seu projeto e você envia tudo pronto no WhatsApp.\n\nComo posso te chamar?';
+        return 'Olá! Sou o assistente da Madê.\nEm uns 2 minutos eu organizo as informações do seu projeto e você envia tudo pronto no WhatsApp.\n\nComo posso te chamar?';
       }
     },
     {
@@ -230,7 +230,7 @@
       '<div class="orc__topo">' +
         '<button class="orc__voltar" type="button" aria-label="Voltar uma pergunta" hidden>' + ICONE.voltar + '</button>' +
         '<img src="' + logo + '" alt="" width="40" height="40">' +
-        '<div><b id="orc-titulo">Pré-orçamento</b><small>Madê Marcenaria</small></div>' +
+        '<div><b id="orc-titulo">Comece seu projeto</b><small>Madê Marcenaria</small></div>' +
         '<button class="orc__fechar" type="button" aria-label="Fechar o assistente">' + ICONE.fechar + '</button>' +
       '</div>' +
       '<div class="orc__progresso" aria-hidden="true"><span></span></div>' +
@@ -271,7 +271,7 @@
 
   function traduzirMoldura() {
     if (!el.caixa) return;
-    el.caixa.querySelector('#orc-titulo').textContent = T('Pré-orçamento');
+    el.caixa.querySelector('#orc-titulo').textContent = T('Comece seu projeto');
     el.caixa.querySelector('.orc__topo small').textContent = T('Madê Marcenaria');
     el.caixa.querySelector('.orc__aviso').textContent = T('Nada fica salvo no site. Suas respostas vão só na mensagem que você enviar.');
     el.caixa.querySelector('label[for="orc-campo"]').textContent = T('Sua resposta');
@@ -541,7 +541,7 @@
     return t.map(function (x) { return '#' + normaliza(x).replace(/ /g, '-'); }).join(' ');
   }
 
-  /* Número do pré-orçamento: MD-AAMMDD-XXXX (data + 4 caracteres sorteados).
+  /* Número do "Comece seu projeto": MD-AAMMDD-XXXX (data + 4 caracteres sorteados).
      Não é sequencial (o site não tem servidor), mas é único na prática e
      serve para a dona e o cliente se referirem ao mesmo pedido. Gerado uma
      vez por conversa; "Recomeçar" gera outro. */
@@ -578,10 +578,10 @@
     var combo = r.combinacao ? ['Combinação que montei no site:'].concat(lista(r.combinacaoPt || r.combinacao)) : null;
 
     var m = [
-      '*PRÉ-ORÇAMENTO Nº ' + numeroPedido() + '*',
+      '*NOVO PROJETO Nº ' + numeroPedido() + '*',
       '_Madê Marcenaria · enviado pelo site em ' + data + '_',
       '',
-      'Olá, Madê! Segue o meu pré-orçamento.'
+      'Olá, Madê! Quero começar o meu projeto.'
     ];
     m = m.concat(bloco('CLIENTE', [
       linha('Nome', r.nome, true),
@@ -620,7 +620,7 @@
       card.className = 'orc__resumo';
       var h = document.createElement('h4'); h.textContent = T('Seu projeto'); card.appendChild(h);
       var num = document.createElement('p'); num.className = 'orc__numero';
-      num.textContent = T('Pré-orçamento nº {n}', { n: numeroPedido() }); card.appendChild(num);
+      num.textContent = T('Projeto nº {n}', { n: numeroPedido() }); card.appendChild(num);
       var dl = document.createElement('dl');
       linhas().forEach(function (l) {
         var row = document.createElement('div'); row.className = 'linha-r';
@@ -690,7 +690,7 @@
         r.segmento = segmento;
         historico = [];
         digitando(function () {
-          bolha(T('Olá! Sou o assistente de pré-orçamento da Madê. Vamos organizar o seu projeto {s} em uns 2 minutos.', { s: T(segmento.toLowerCase()) }), 'bot');
+          bolha(T('Olá! Sou o assistente da Madê. Vamos organizar o seu projeto {s} em uns 2 minutos.', { s: T(segmento.toLowerCase()) }), 'bot');
           perguntar(PASSOS.findIndex(function (p) { return p.id === 'imovel'; }));
         });
         return;

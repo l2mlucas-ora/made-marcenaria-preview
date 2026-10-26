@@ -116,7 +116,7 @@
   }
   var lancador = document.querySelector('.lancador');
   if ('IntersectionObserver' in window && ancora && (barra || lancador)) {
-    // A barra do celular e o botão flutuante do pré-orçamento só aparecem
+    // A barra do celular e o botão flutuante do "Comece seu projeto" só aparecem
     // depois que o herói (que já tem os botões) saiu da tela.
     new IntersectionObserver(function (entradas) {
       var passou = entradas[0].boundingClientRect.top < 0 && !entradas[0].isIntersecting;

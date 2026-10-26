@@ -822,6 +822,8 @@ p { max-width: 62ch; }
 .menu a { white-space: nowrap; }
 @media (min-width: 980px) and (max-width: 1440px) { .menu { gap: 22px; } .menu .menu__zap { display: none; } }
 @media (min-width: 980px) and (max-width: 1180px) { .menu { gap: 16px; } .menu a { letter-spacing: .12em; } .idiomas button { min-width: 28px; } }
+/* "Comece seu projeto" é mais longo que o antigo "Pré-orçamento": no notebook pequeno o topo aperta e "Como funciona" sai do menu (continua na página). */
+@media (min-width: 980px) and (max-width: 1180px) { .menu { gap: 12px; } .menu .btn { padding: 10px 14px; letter-spacing: .1em; } .menu a[href="#processo"] { display: none; } }
 
 /* ============================================================
    MDF premium (mdf.js) — explorador do catálogo
