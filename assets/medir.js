@@ -19,8 +19,8 @@
    ============================================================ */
 (function () {
   var TOKEN = '';
-  // TODO: confirmar com a dona — domínio final (ver CLAUDE.md, "Domínio").
-  var DOMINIO = 'www.mademarcenaria.com.br';
+  // Domínio da casa (CLAUDE.md, "Domínio"): só ele conta visita.
+  var DOMINIO = 'www.mademarcenaria.com';
 
   if (!TOKEN) return;
   // Localhost, pré-visualização e o endereço do github.io não contam.

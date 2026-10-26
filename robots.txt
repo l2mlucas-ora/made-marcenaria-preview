@@ -2,5 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /falar/
 
-# TODO: confirmar com a dona — domínio final
-Sitemap: https://www.mademarcenaria.com.br/sitemap.xml
+Sitemap: https://www.mademarcenaria.com/sitemap.xml
