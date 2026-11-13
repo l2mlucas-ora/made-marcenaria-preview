@@ -48,25 +48,50 @@
     // Base do site: "/" no domínio, "/<repo>/" na prévia do GitHub Pages.
     var BASE = location.pathname.replace(/falar\/.*$/, '');
     window.baseSite = BASE;
+    var pixelTeste = /[?&]pixel-teste\b/.test(location.search);
     history.replaceState(null, '', BASE + 'falar/' + de + '/');
 
-    var foi = false;
+    // Segue para o WhatsApp quando a medição (Cloudflare) e o pixel (Meta)
+    // terminarem — ou em 2 s, o que vier primeiro.
+    var foi = false, falta = { medidor: 1, pixel: 1 };
     window.irAoZap = function () { if (!foi) { foi = true; location.replace(destino); } };
+    window.feito = function (k) { delete falta[k]; if (!Object.keys(falta).length) window.irAoZap(); };
     setTimeout(window.irAoZap, 2000);
 
     var abrir = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.open = function (metodo, url) {
-      if (String(url).indexOf('/cdn-cgi/rum') !== -1) this.addEventListener('loadend', window.irAoZap);
+      if (String(url).indexOf('/cdn-cgi/rum') !== -1) this.addEventListener('loadend', function () { window.feito('medidor'); });
       return abrir.apply(this, arguments);
     };
+
+    // Pixel da Meta: evento Contact, SÓ se a pessoa aceitou os cookies no
+    // site (assets/pixel.js, 'made:cookies'). Vai como o pixel de imagem
+    // oficial (facebook.com/tr), sem carregar o fbevents.js nesta página de
+    // passagem. Leva só o rótulo do botão — nunca o texto da mensagem.
+    // ID igual ao <body data-pixel> das páginas do site.
+    var PIXEL = '214079548223861';
+    var aceito = false;
+    try { aceito = localStorage.getItem('made:cookies') === 'aceito'; } catch (e) {}
+    if (PIXEL && aceito && !navigator.webdriver && (location.hostname === 'www.mademarcenaria.com' || pixelTeste)) {
+      var fbp = (document.cookie.match(/(?:^|; )_fbp=([^;]+)/) || [])[1];
+      var img = new Image();
+      img.onload = img.onerror = function () { window.feito('pixel'); };
+      img.src = 'https://www.facebook.com/tr/?id=' + PIXEL + '&ev=Contact' +
+        '&dl=' + encodeURIComponent(location.origin + BASE + 'falar/' + de + '/') +
+        '&rl=' + encodeURIComponent(document.referrer) +
+        '&cd[content_name]=' + encodeURIComponent(de) +
+        (fbp ? '&fbp=' + encodeURIComponent(fbp) : '') + '&ts=' + Date.now();
+    } else {
+      window.feito('pixel');
+    }
   })();
 </script>
 <!-- Caminho montado com a base do site: depois do replaceState, um relativo
      resolveria contra /falar/<botão>/ e não acharia o arquivo. -->
 <script>document.write('<script src="' + window.baseSite + 'assets/medir.js"><\/script>');</script>
 <script>
-  if (!window.medidor) window.irAoZap();
-  else window.medidor.addEventListener('error', window.irAoZap);
+  if (!window.medidor) window.feito('medidor');
+  else window.medidor.addEventListener('error', function () { window.feito('medidor'); });
 </script>
 
 <style>

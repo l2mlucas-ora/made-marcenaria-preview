@@ -242,6 +242,14 @@
     'O site': ['The site', 'El sitio'],
     'Falar com a Madê': ['Talk to Madê', 'Hablar con Madê'],
     'Todos os links': ['All links', 'Todos los links'],
+    /* ---------- Cookies e privacidade (13/11/2026) ---------- */
+    'Privacidade': ['Privacy', 'Privacidad'],
+    'Preferências de cookies': ['Cookie preferences', 'Preferencias de cookies'],
+    'Aviso de cookies': ['Cookie notice', 'Aviso de cookies'],
+    'Usamos cookies da Meta (Instagram e Facebook) para medir nossos anúncios. Só ativamos se você aceitar.': ['We use Meta cookies (Instagram and Facebook) to measure our ads. They are only turned on if you accept.', 'Usamos cookies de Meta (Instagram y Facebook) para medir nuestros anuncios. Solo se activan si aceptás.'],
+    'Política de privacidade': ['Privacy policy', 'Política de privacidad'],
+    'Recusar': ['Decline', 'Rechazar'],
+    'Aceitar': ['Accept', 'Aceptar'],
     'Desenvolvido por Extrema Consultoria': ['Developed by Extrema Consultoria', 'Desarrollado por Extrema Consultoria'],
     'Abrir o assistente Comece seu projeto': ['Open the Start your project assistant', 'Abrir el asistente Empezá tu proyecto'],
 

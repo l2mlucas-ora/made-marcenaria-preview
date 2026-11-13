@@ -596,6 +596,8 @@ p { max-width: 62ch; }
 .rodape__gigante .marca__letreiro { width: 100%; }
 .rodape__base { margin-top: var(--s5); padding-top: var(--s3); border-top: 1px solid var(--linha-escura); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; font-size: .84rem; color: rgb(244 239 231 / .62); }
 .rodape__base a { color: inherit; }
+.rodape__legal button { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
+.rodape__legal a:hover, .rodape__legal button:hover { color: var(--creme); }
 /* Crédito do desenvolvedor (Extrema Consultoria): só o ícone, discreto, como no site da Target. */
 .credito-dev { display: inline-flex; align-items: center; opacity: .75; transition: opacity var(--dur) var(--ease); }
 .credito-dev:hover, .credito-dev:focus-visible { opacity: 1; }

@@ -110,8 +110,10 @@
   .bio__hist:hover img { transform: scale(1.06); }
   .bio__hist span { position: absolute; inset: auto 0 0 0; padding: 26px 9px 9px; font-family: var(--fonte-titulo); font-size: 1rem; line-height: 1.1; background: linear-gradient(180deg, transparent, rgb(28 25 23 / .85)); }
 
-  .bio__rod { margin-top: 30px; text-align: center; font-size: .8rem; color: var(--bio-suave); display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  /* O pé da bio fica sobre o fundo escuro nos dois temas: cor clara fixa (antes herdava o texto suave do tema claro, quase invisível). */
+  .bio__rod { margin-top: 30px; text-align: center; font-size: .8rem; color: rgb(244 239 231 / .72); display: flex; flex-direction: column; align-items: center; gap: 10px; }
   .bio__rod a { color: inherit; }
+  .bio__legal button { font: inherit; color: inherit; background: none; border: 0; padding: 0; text-decoration: underline; cursor: pointer; }
 
   /* Entrada em cascata, uma vez (o bloco de movimento reduzido da folha desliga). */
   .bio-entra { opacity: 0; transform: translateY(14px); animation: entra .8s var(--ease) forwards; }
@@ -122,7 +124,7 @@
 </style>
 </head>
 
-<body class="bio" data-zap="5548992229202" data-insta="made.marcenaria">
+<body class="bio" data-zap="5548992229202" data-insta="made.marcenaria" data-pixel="214079548223861">
 <!-- Fundo: as mesmas duas capas do herói (geradas por IA, decisão 37), alternando devagar. -->
 <div class="bio__fundo" aria-hidden="true">
   <img src="../assets/fotos/capa-ambiente.jpg" alt="" width="2560" height="1429" fetchpriority="high">
@@ -227,6 +229,7 @@
 
   <div class="bio__rod">
     <span>© <span data-ano>2026</span> Madê Marcenaria · Garopaba, SC</span>
+    <span class="bio__legal"><a href="../privacidade/">Privacidade</a> · <button type="button" data-cookies>Preferências de cookies</button></span>
     <!-- Crédito do desenvolvedor igual ao da Target: ícone oficial da Extrema (cópia de Target/public/img/extrema-consultoria.svg). -->
     <a class="credito-dev" href="https://extremaconsultoria.com.br/" target="_blank" rel="noopener" title="Desenvolvido por Extrema Consultoria"><img src="../assets/extrema-consultoria.svg" width="28" height="28" alt="Desenvolvido por Extrema Consultoria" loading="lazy" decoding="async"></a>
   </div>
@@ -236,5 +239,6 @@
 <script src="../assets/i18n.js" defer></script>
 <script src="../assets/site.js" defer></script>
 <script src="../assets/medir.js" defer></script>
+<script src="../assets/pixel.js" defer></script>
 </body>
 </html>
