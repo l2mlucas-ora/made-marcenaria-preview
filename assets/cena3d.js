@@ -1,9 +1,7 @@
 /* ============================================================
    Madê Marcenaria — 3D (Three.js r169, hospedado no site)
 
-   Duas camadas de qualidade:
-
-   1) 3D INTERATIVO (sempre): a pessoa gira a cena arrastando.
+   3D INTERATIVO (sempre): a pessoa gira a cena arrastando.
       - Madeira com textura FOTOGRÁFICA (folha de carvalho, Poly Haven, CC0)
         convertida em tons de cinza e TINGIDA com a cor de cada padrão de
         MDF, com relevo (normal map) e variação de brilho (roughness map),
@@ -16,10 +14,8 @@
       - Piso de porcelanato, parede de reboco e pedra da churrasqueira com
         texturas reais; planta modelada (glTF, Poly Haven, CC0).
 
-   2) FOTO REALISTA (botão): traçado de raios progressivo
-      (three-gpu-pathtracer 0.0.23 + three-mesh-bvh 0.7.8, MIT). Em alguns
-      segundos a luz rebate de verdade nas superfícies — é a mesma técnica
-      dos renders. Ao final, "Salvar imagem" gera um PNG com a assinatura.
+   (O botão "Foto realista", traçado de raios, saiu em 18/11/2026 a pedido
+   do Lucas: o 3D interativo já basta, e o painel cobria a cena no celular.)
 
    Leveza: nada disso é baixado até a pessoa chegar perto das seções;
    desenha sob demanda; fora da tela, para. Sem WebGL, fica a ilustração
@@ -138,7 +134,7 @@ function uvMetros(geo, orient, S, deslocar) {
 }
 
 /* ============================================================
-   Palco: renderizador, cena, luz real, pós-processamento, foto
+   Palco: renderizador, cena, luz real, pós-processamento
    ============================================================ */
 class Palco {
   constructor(L, alvo) {
@@ -176,11 +172,11 @@ class Palco {
     ctl.enablePan = false; ctl.enableDamping = !reduzido; ctl.dampingFactor = 0.08; ctl.rotateSpeed = 0.6;
     ctl.minPolarAngle = 1.0; ctl.maxPolarAngle = 1.62; ctl.minAzimuthAngle = -0.65; ctl.maxAzimuthAngle = 0.65;
     ctl.zoomSpeed = 0.6;
-    ctl.addEventListener('change', () => { this.sairDaFoto(); this.pedir(); });
+    ctl.addEventListener('change', () => this.pedir());
     ctl.addEventListener('start', () => alvo.classList.add('girou'));
 
     this.montarComposer();
-    this.grupo = null; this.visivel = true; this.pedido = false; this.foto = null;
+    this.grupo = null; this.visivel = true; this.pedido = false;
     new ResizeObserver(() => this.ajustar()).observe(alvo);
     new IntersectionObserver((e) => { this.visivel = e[0].isIntersecting; if (this.visivel) this.pedir(); }).observe(alvo);
 
@@ -209,22 +205,12 @@ class Palco {
     const dica = document.createElement('span'); dica.className = 'giro-dica'; dica.setAttribute('aria-hidden', 'true');
     a.appendChild(dica); this.dica = dica;
 
-    const bt = document.createElement('button'); bt.type = 'button'; bt.className = 'foto3d__botao';
-    bt.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg><span></span>';
-    bt.addEventListener('click', (e) => { e.stopPropagation(); this.tirarFoto(); });
-    a.appendChild(bt); this.botaoFoto = bt;
-
-    const painel = document.createElement('div'); painel.className = 'foto3d__painel'; painel.hidden = true;
-    painel.innerHTML = '<p class="foto3d__texto" role="status"></p><div class="foto3d__barra"><span></span></div><div class="foto3d__acoes"></div>';
-    a.appendChild(painel); this.painel = painel;
     this.traduzir();
     document.addEventListener('made:idioma', () => this.traduzir());
   }
 
   traduzir() {
     this.dica.textContent = T('Arraste para girar');
-    this.botaoFoto.querySelector('span').textContent = T('Foto realista');
-    this.botaoFoto.setAttribute('aria-label', T('Gerar foto realista desta cena'));
   }
 
   ajustar() {
@@ -234,14 +220,14 @@ class Palco {
     this.composer.setPixelRatio(this.renderer.getPixelRatio());
     this.composer.setSize(w, h);
     this.camera.aspect = w / h; this.camera.updateProjectionMatrix();
-    this.sairDaFoto(); this.pedir();
+    this.pedir();
   }
 
   pedir() {
-    if (this.pedido || this.foto) return; this.pedido = true;
+    if (this.pedido) return; this.pedido = true;
     requestAnimationFrame(() => {
       this.pedido = false;
-      if (!this.visivel || this.foto) return;
+      if (!this.visivel) return;
       const mexeu = this.controles.update();
       this.composer.render();
       if (mexeu) this.pedir();
@@ -255,86 +241,11 @@ class Palco {
   }
 
   trocar(grupo) {
-    this.sairDaFoto();
     if (this.grupo) {
       this.cena.remove(this.grupo);
       this.grupo.traverse((o) => { if (o.geometry && !o.userData.compartilhado) o.geometry.dispose(); });
     }
     this.grupo = grupo; this.cena.add(grupo); this.pedir();
-  }
-
-  /* ---------- Foto realista (traçado de raios) ---------- */
-  async tirarFoto() {
-    if (this.foto) return;
-    const { THREE } = this.L;
-    const painel = this.painel, texto = painel.querySelector('.foto3d__texto'), barra = painel.querySelector('.foto3d__barra span'), acoes = painel.querySelector('.foto3d__acoes');
-    painel.hidden = false; this.alvo.classList.add('fotografando'); acoes.textContent = '';
-    texto.textContent = T('Preparando a luz…'); barra.style.width = '0%';
-    const cancelar = this.botao(T('Cancelar'), () => this.sairDaFoto(true)); acoes.appendChild(cancelar);
-    let PT;
-    try { PT = await import('three-gpu-pathtracer'); } catch (e) { texto.textContent = T('Seu navegador não conseguiu gerar a foto.'); return; }
-    if (painel.hidden) return;   // cancelou enquanto o traçador carregava
-    const pt = new PT.WebGLPathTracer(this.renderer);
-    pt.tiles.set(celular ? 3 : 2, celular ? 3 : 2);
-    pt.bounces = 5; pt.filterGlossyFactor = 0.4; pt.renderDelay = 0; pt.fadeDuration = 0; pt.minSamples = 1;
-    pt.renderScale = celular ? 0.6 : 1;
-    const foto = this.foto = { pt, parar: false };
-    // O traçador usa o fundo e a luz da cena; a cor de fundo vira luz ambiente suave.
-    // setScene síncrono: a versão assíncrona exige um worker de BVH, e a cena é pequena.
-    await new Promise((r) => setTimeout(r, 30));   // deixa o "Preparando a luz…" aparecer
-    // O traçador lê o HDR equirretangular cru, não o PMREM do raster (volta em sairDaFoto).
-    this.R.hdr.mapping = THREE.EquirectangularReflectionMapping; this.cena.environment = this.R.hdr;
-    try { pt.setScene(this.cena, this.camera); } catch (e) { console.warn('foto realista:', e); texto.textContent = T('Seu navegador não conseguiu gerar a foto.'); this.foto = null; return; }
-    if (foto.parar) return;
-    const alvoAmostras = celular ? 120 : 260, limite = performance.now() + (celular ? 45000 : 35000);
-    const passo = () => {
-      if (foto.parar) return;
-      pt.renderSample();
-      const p = Math.min(1, pt.samples / alvoAmostras);
-      barra.style.width = Math.round(p * 100) + '%';
-      texto.textContent = T('Gerando foto realista… {p}%', { p: Math.round(p * 100) });
-      if (p < 1 && performance.now() < limite) { requestAnimationFrame(passo); return; }
-      // Pronto: captura no mesmo quadro (o buffer ainda está desenhado)
-      foto.imagem = this.capturar();
-      texto.textContent = T('Pronta! Cores aproximadas: a Madê leva as amostras reais.');
-      acoes.textContent = '';
-      acoes.appendChild(this.botao(T('Salvar imagem'), () => this.salvar(foto.imagem), true));
-      acoes.appendChild(this.botao(T('Voltar ao 3D'), () => this.sairDaFoto(true)));
-    };
-    requestAnimationFrame(passo);
-  }
-
-  botao(rotulo, acao, principal) {
-    const b = document.createElement('button'); b.type = 'button';
-    b.className = principal ? 'foto3d__acao foto3d__acao--principal' : 'foto3d__acao';
-    b.textContent = rotulo; b.addEventListener('click', (e) => { e.stopPropagation(); acao(); }); return b;
-  }
-
-  capturar() {
-    const fonte = this.renderer.domElement, c = document.createElement('canvas');
-    c.width = fonte.width; c.height = fonte.height;
-    const ctx = c.getContext('2d'); ctx.drawImage(fonte, 0, 0);
-    const k = c.width / 1000, txt = 'Madê Marcenaria · ilustração · cores aproximadas';
-    ctx.font = `${Math.round(13 * k)}px Inter, "Segoe UI", sans-serif`;
-    const w = ctx.measureText(txt).width + 24 * k;
-    ctx.fillStyle = 'rgba(28,25,23,.55)'; ctx.fillRect(c.width - w - 14 * k, c.height - 34 * k, w, 24 * k);
-    ctx.fillStyle = '#F4EFE7'; ctx.fillText(txt, c.width - w - 2 * k, c.height - 17 * k);
-    return c.toDataURL('image/png');
-  }
-
-  salvar(dataUrl) {
-    const a = document.createElement('a'); a.href = dataUrl; a.download = 'made-marcenaria-ambiente.png';
-    document.body.appendChild(a); a.click(); a.remove();
-  }
-
-  sairDaFoto(voltar) {
-    this.cena.environment = this.envRaster;
-    if (!this.foto) { if (voltar) { this.painel.hidden = true; this.alvo.classList.remove('fotografando'); this.pedir(); } return; }
-    this.foto.parar = true;
-    try { this.foto.pt.dispose(); } catch (e) {}
-    this.foto = null;
-    this.painel.hidden = true; this.alvo.classList.remove('fotografando');
-    this.pedir();
   }
 
   /* ---------- materiais ---------- */
